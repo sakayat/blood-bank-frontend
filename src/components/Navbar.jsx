@@ -8,7 +8,7 @@ const Navbar = () => {
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between h-20">
             <div className="logo">
-              <a href="http://">UR Blood</a>
+              <NavLink to="/">Blood Bank</NavLink>
             </div>
             <ul className="flex items-center gap-8" id="nav-links">
               <li>
@@ -20,7 +20,7 @@ const Navbar = () => {
                 <NavLink to="login/">Login</NavLink>
               </li>
               <li>
-                <NavLink to="sign-up/">Signup</NavLink>
+                <NavLink to="sign-up/">SignUp</NavLink>
               </li>
             </ul>
           </div>

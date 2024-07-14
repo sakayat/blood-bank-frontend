@@ -43,3 +43,16 @@ h1 {
 .hero-content {
   background-color: #ffffffe3;
 }
+
+.quote-icon{
+  color: #c6414c;
+}
+
+.donor-list{
+  background-color: #c6414c;
+  color: #fff;
+}
+
+.request-link{
+  color: #c6414c;
+}
