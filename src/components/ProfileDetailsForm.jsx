@@ -50,7 +50,7 @@ const ProfileDetailsForm = ({ user, id }) => {
         }
       );
       if (res.ok) {
-       return navigate("/")
+       return navigate("/profile")
       }
     } else {
       const res = await fetch("http://127.0.0.1:8000/api/donors/profile/", {

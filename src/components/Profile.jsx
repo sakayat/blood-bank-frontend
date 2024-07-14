@@ -41,8 +41,8 @@ const Profile = () => {
             <div className="space-x-2">
               <span className="font-semibold">Name:</span>
               <span className="text-black/60 text-md space-x-2">
-                {profileInfo.first_name}
-                {profileInfo.last_name}
+                <span>{profileInfo.first_name}</span>
+                <span>{profileInfo.last_name}</span>
               </span>
             </div>
             <div className="space-x-2">
@@ -63,7 +63,7 @@ const Profile = () => {
             </div>
             {profileInfo && (
               <button className="default-btn py-3 px-6 rounded ">
-                <Link to={`update/${profileInfo.id}/`} className="text-white">
+                <Link to={`update/${profileInfo.id}/`} className="hover:text-white">
                   Update Profile
                 </Link>
               </button>
