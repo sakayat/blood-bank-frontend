@@ -23,3 +23,24 @@ h1 {
 @tailwind components;
 @tailwind utilities;
 
+.default-btn {
+  background-color: #c6414c;
+  color: white;
+  border-radius: 3px;
+}
+
+.hero-section {
+  background: url("./assets/images/patient-donating-blood.jpg");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.overlay {
+  background-color: #0000003d;
+  opacity: 1;
+}
+
+.hero-content {
+  background-color: #ffffffe3;
+}
