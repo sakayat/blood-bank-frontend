@@ -1,18 +1,34 @@
-import React from "react";
+import React, { useState } from "react";
 import img from "../assets/images/sign_up_n6im.png";
 
 const SignUp = () => {
+  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const userObj = {
+      username: username,
+      email: email,
+      password: password,
+      confirm_password: confirmPassword,
+    };
+    console.log(userObj);
+  };
+
   return (
     <section className="registration">
       <div className="container mx-auto px-4">
-        <div class="">
+        <div>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
             <div className="lg:order-last">
-              <img src={img} alt="" srcset="" className="w-full h-full" />
+              <img src={img} alt="" className="w-full h-full" />
             </div>
-            <form className="py-5 px-8 space-y-3">
-              <div class="py-3">
-                <h1 class="text-2xl">Create a new account</h1>
+            <form className="py-5 px-8 space-y-3" onSubmit={handleSubmit}>
+              <div className="py-3">
+                <h1 className="text-2xl">Create a new account</h1>
               </div>
               <div className="form-control space-y-3">
                 <label htmlFor="username">Username</label>
@@ -20,7 +36,9 @@ const SignUp = () => {
                   type="text"
                   id="username"
                   placeholder="username"
-                  class="w-full outline-none py-3 px-4 border border-black/20 bg-white rounded"
+                  className="w-full outline-none py-3 px-4 border border-black/20 bg-white rounded"
+                  value={username}
+                  onChange={(e) => setUsername(e.target.value)}
                 />
               </div>
               <div className="form-control space-y-3">
@@ -29,30 +47,34 @@ const SignUp = () => {
                   type="email"
                   id="email"
                   placeholder="Email"
-                  class="w-full outline-none py-3 px-4 border border-black/20 bg-white rounded"
+                  className="w-full outline-none py-3 px-4 border border-black/20 bg-white rounded"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
                 />
               </div>
               <div className="form-control space-y-3">
                 <label htmlFor="password">Password</label>
                 <input
-                type="password"
-                placeholder="Password"
-                class="w-full outline-none py-3 px-4 border border-black/20 bg-white rounded"
-              />
+                  type="password"
+                  placeholder="Password"
+                  className="w-full outline-none py-3 px-4 border border-black/20 bg-white rounded"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                />
               </div>
-              
+
               <div className="form-control space-y-3">
                 <label htmlFor="confirm-password">Confirm Password</label>
                 <input
-                type="password"
-                id="confirm-password"
-                placeholder="Confirm Password"
-                class="w-full outline-none py-3 px-4 border border-black/20 bg-white rounded"
-              />
+                  type="password"
+                  id="confirm-password"
+                  placeholder="Confirm Password"
+                  className="w-full outline-none py-3 px-4 border border-black/20 bg-white rounded"
+                  value={confirmPassword}
+                  onChange={(e) => setConfirmPassword(e.target.value)}
+                />
               </div>
-              <button class="default-btn py-3 w-full rounded">
-                Submit
-              </button>
+              <button className="default-btn py-3 w-full rounded">Submit</button>
             </form>
           </div>
         </div>

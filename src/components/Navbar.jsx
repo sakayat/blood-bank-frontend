@@ -3,16 +3,16 @@ import { NavLink } from "react-router-dom";
 
 const Navbar = () => {
   return (
-    <div class="navbar sticky inset-x-0 top-0 z-10">
-      <nav class="bg-white text-black border-b">
-        <div class="container mx-auto px-4">
-          <div class="flex items-center justify-between h-20">
-            <div class="logo">
+    <div className="navbar sticky inset-x-0 top-0 z-10">
+      <nav className="bg-white text-black border-b">
+        <div className="container mx-auto px-4">
+          <div className="flex items-center justify-between h-20">
+            <div className="logo">
               <a href="http://">UR Blood</a>
             </div>
-            <ul class="flex items-center gap-8" id="nav-links">
+            <ul className="flex items-center gap-8" id="nav-links">
               <li>
-                <NavLink href="http://" class="active">
+                <NavLink href="http://" className="active">
                   Home
                 </NavLink>
               </li>
