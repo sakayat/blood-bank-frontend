@@ -22,8 +22,6 @@ const Profile = () => {
     setProfileInfo(data);
   };
 
-  console.log(profileInfo);
-
   return (
     <section className="py-10">
       <div className="container mx-auto px-4">
@@ -65,7 +63,7 @@ const Profile = () => {
             </div>
             {profileInfo && (
               <button className="default-btn py-3 px-6 rounded ">
-                <Link to={`update/${profileInfo.id}`} className="text-white">
+                <Link to={`update/${profileInfo.id}/`} className="text-white">
                   Update Profile
                 </Link>
               </button>

@@ -8,6 +8,7 @@ const Homepage = () => {
     <HeroSection />
     <DonorList />
     <BloodCategory />
+    
   </div>
 };
 

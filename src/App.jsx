@@ -5,6 +5,7 @@ import SignUp from "./components/SignUp";
 import Login from "./components/Login";
 import Profile from "./components/Profile";
 import ProfileDetailsForm from "./components/ProfileDetailsForm";
+import UpdateProfileForm from "./components/UpdateProfileForm";
 const App = () => {
   return (
     <div>
@@ -15,6 +16,7 @@ const App = () => {
         <Route path="login/" element={<Login />} />
         <Route path="profile/" element={<Profile />} />
         <Route path="profile/details/" element={<ProfileDetailsForm />} />
+        <Route path="profile/update/:id" element={<UpdateProfileForm />} />
       </Routes>
     </div>
   );

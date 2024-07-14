@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import img from "../assets/images//add_information.png";
 
-const ProfileDetailsForm = () => {
+const ProfileDetailsForm = ({ user, id }) => {
+
   const token = localStorage.getItem("authToken");
   const navigate = useNavigate();
   const [firstName, setFirstName] = useState("");
@@ -10,10 +11,22 @@ const ProfileDetailsForm = () => {
   const [age, setAge] = useState("");
   const [address, setAddress] = useState("");
   const [lastDonation, setLastDonation] = useState("");
+  const [isAvailable, setIsAvailable] = useState(true);
 
   const [error, setError] = useState("");
 
-  const handleProfileDetails = async (e) => {
+  useEffect(() => {
+    if (user) {
+      setFirstName(user.first_name);
+      setLastName(user.last_name);
+      setAge(user.age);
+      setAddress(user.address);
+      setLastDonation(user.last_donation);
+      setIsAvailable(user.is_available);
+    }
+  }, [user]);
+
+  const handleOnProfile = async (e) => {
     e.preventDefault();
     const userObj = {
       first_name: firstName,
@@ -24,21 +37,38 @@ const ProfileDetailsForm = () => {
       is_available: isAvailable,
     };
 
-    const res = await fetch("http://127.0.0.1:8000/api/donors/profile/", {
-      method: "post",
-      headers: {
-        "Content-type": "application/json",
-        Authorization: `Token ${token}`,
-      },
-      body: JSON.stringify(userObj),
-    });
+    if (user) {
+      const res = await fetch(
+        `http://127.0.0.1:8000/api/donors/update-profile/${id}/`,
+        {
+          method: "put",
+          headers: {
+            "Content-type": "application/json",
+            Authorization: `Token ${token}`,
+          },
+          body: JSON.stringify(userObj),
+        }
+      );
+      if (res.ok) {
+       return navigate("/")
+      }
+    } else {
+      const res = await fetch("http://127.0.0.1:8000/api/donors/profile/", {
+        method: "post",
+        headers: {
+          "Content-type": "application/json",
+          Authorization: `Token ${token}`,
+        },
+        body: JSON.stringify(userObj),
+      });
 
-    const data = await res.json();
+      const data = await res.json();
 
-    setError(data);
+      setError(data);
 
-    if (res.ok) {
-      navigate("profile/");
+      if (res.ok) {
+       return navigate("profile/");
+      }
     }
   };
 
@@ -47,14 +77,14 @@ const ProfileDetailsForm = () => {
       <div className="container mx-auto">
         <div className="py-5">
           <h2 className="text-2xl font-semibold text-center">
-            Add Profile Details
+           {user ? "Update Profile" : " Add Profile Details"}
           </h2>
         </div>
         <div className="grid grid-cols1 lg:grid-cols-2 place-items-center gap-5">
           <img src={img} alt="" className="w-full h-full" />
           <form
             className="py-5 px-8 space-y-3 w-full"
-            onSubmit={handleProfileDetails}
+            onSubmit={handleOnProfile}
           >
             <div className="form-control space-y-3">
               <label htmlFor="first_name">First Name</label>
