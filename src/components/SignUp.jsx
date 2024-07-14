@@ -1,11 +1,15 @@
 import React, { useState } from "react";
 import img from "../assets/images/signup-2.png";
+import { useNavigate } from "react-router-dom";
 
 const SignUp = () => {
+  const navigate = useNavigate()
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+
+  const [error, setError] = useState("")
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -15,7 +19,22 @@ const SignUp = () => {
       password: password,
       confirm_password: confirmPassword,
     };
-    console.log(userObj);
+
+    const res = await fetch("http://127.0.0.1:8000/api/accounts/register/", {
+      method: "post",
+      headers: {
+        "Content-type": "application/json"
+      },
+      body: JSON.stringify(userObj)
+    })
+
+    const data = await res.json()
+
+    if(res.ok){
+      localStorage.setItem("authToken", data.token)
+      navigate("/login")
+    } 
+    setError(data)
   };
 
   return (
@@ -73,8 +92,10 @@ const SignUp = () => {
                   value={confirmPassword}
                   onChange={(e) => setConfirmPassword(e.target.value)}
                 />
+                
               </div>
               <button className="default-btn py-3 w-full rounded">Submit</button>
+              {error && <p className="py-3 text-rose-500">{error.error ? error.error : error.username}</p>}
             </form>
           </div>
         </div>
