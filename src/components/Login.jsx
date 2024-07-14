@@ -1,9 +1,13 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import img from "../assets/images/login.png";
 
 const Login = () => {
+  const navigate = useNavigate();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+
+  const [error, setError] = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -11,7 +15,21 @@ const Login = () => {
       username: username,
       password: password,
     };
-    console.log(userObj);
+    const res = await fetch("http://127.0.0.1:8000/api/accounts/login/", {
+      method: "post",
+      headers: {
+        "Content-type": "application/json",
+      },
+      body: JSON.stringify(userObj),
+    });
+
+    const data = await res.json();
+
+    if (res.ok) {
+      localStorage.setItem("authToken", data.token);
+      navigate("/");
+    }
+    setError(data);
   };
 
   return (
@@ -51,10 +69,14 @@ const Login = () => {
                   onChange={(e) => setPassword(e.target.value)}
                 />
               </div>
-
               <button className="default-btn py-3 w-full rounded">
                 Submit
               </button>
+              {error && (
+                <p className="py-3 text-rose-500">
+                  {error.error ? error.error : error.username}
+                </p>
+              )}
             </form>
           </div>
         </div>

@@ -1,15 +1,15 @@
 import React, { useState } from "react";
-import img from "../assets/images/signup-2.png";
 import { useNavigate } from "react-router-dom";
+import img from "../assets/images/signup-2.png";
 
 const SignUp = () => {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
 
-  const [error, setError] = useState("")
+  const [error, setError] = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -23,18 +23,18 @@ const SignUp = () => {
     const res = await fetch("http://127.0.0.1:8000/api/accounts/register/", {
       method: "post",
       headers: {
-        "Content-type": "application/json"
+        "Content-type": "application/json",
       },
-      body: JSON.stringify(userObj)
-    })
+      body: JSON.stringify(userObj),
+    });
 
-    const data = await res.json()
+    const data = await res.json();
 
-    if(res.ok){
-      localStorage.setItem("authToken", data.token)
-      navigate("/login")
-    } 
-    setError(data)
+    if (res.ok) {
+      localStorage.setItem("authToken", data.token);
+      navigate("/login");
+    }
+    setError(data);
   };
 
   return (
@@ -43,9 +43,12 @@ const SignUp = () => {
         <div className="lg:h-[calc(100vh-6rem)] flex items-center">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 place-items-center">
             <div className="">
-              <img src={img} alt="" className="w-full h-full"/>
+              <img src={img} alt="" className="w-full h-full" />
             </div>
-            <form className="py-5 px-8 space-y-3 w-full" onSubmit={handleSubmit}>
+            <form
+              className="py-5 px-8 space-y-3 w-full"
+              onSubmit={handleSubmit}
+            >
               <div className="py-3">
                 <h1 className="text-2xl">Create a new account</h1>
               </div>
@@ -92,10 +95,15 @@ const SignUp = () => {
                   value={confirmPassword}
                   onChange={(e) => setConfirmPassword(e.target.value)}
                 />
-                
               </div>
-              <button className="default-btn py-3 w-full rounded">Submit</button>
-              {error && <p className="py-3 text-rose-500">{error.error ? error.error : error.username}</p>}
+              <button className="default-btn py-3 w-full rounded">
+                Submit
+              </button>
+              {error && (
+                <p className="py-3 text-rose-500">
+                  {error.error ? error.error : error.username}
+                </p>
+              )}
             </form>
           </div>
         </div>
