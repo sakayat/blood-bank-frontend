@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import img from "../assets/images/sign_up_n6im.png";
+import img from "../assets/images/signup-2.png";
 
 const SignUp = () => {
   const [username, setUsername] = useState("");
@@ -21,12 +21,12 @@ const SignUp = () => {
   return (
     <section className="registration">
       <div className="container mx-auto px-4">
-        <div>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
-            <div className="lg:order-last">
-              <img src={img} alt="" className="w-full h-full" />
+        <div className="lg:h-[calc(100vh-6rem)] flex items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 place-items-center">
+            <div className="">
+              <img src={img} alt="" className="w-full h-full"/>
             </div>
-            <form className="py-5 px-8 space-y-3" onSubmit={handleSubmit}>
+            <form className="py-5 px-8 space-y-3 w-full" onSubmit={handleSubmit}>
               <div className="py-3">
                 <h1 className="text-2xl">Create a new account</h1>
               </div>
