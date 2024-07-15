@@ -11,9 +11,6 @@ const Dashboard = () => {
             <Link to="ongoing-requests/">OnGoing Requests</Link>
             <Link to="donation-history/">Donation History</Link>
           </div>
-          <div className="ongoing-requests">
-            <p>ongoing-requests</p>
-          </div>
         </div>
       </div>
     </section>

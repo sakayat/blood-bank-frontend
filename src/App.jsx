@@ -10,6 +10,7 @@ import Dashboard from "./components/Dashboard";
 import CreateEvent from "./components/CreateEvent";
 import Layout from "./components/Layout";
 import OngoingRequests from "./components/OngoingRequests";
+import DonationHistory from './components/DonationHistory';
 const App = () => {
   return (
     <div>
@@ -24,6 +25,7 @@ const App = () => {
         <Route path="dashboard/" element={<Layout />}>
           <Route path="create-event/" element={<CreateEvent />} />
           <Route path="ongoing-requests/" element={<OngoingRequests />} />
+          <Route path="donation-history/" element={<DonationHistory />}/>
         </Route>
       </Routes>
     </div>
