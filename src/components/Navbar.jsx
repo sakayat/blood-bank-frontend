@@ -15,19 +15,23 @@ const Navbar = () => {
               {token ? (
                 <>
                   <li>
-                    <NavLink to="/profile" className="active">
+                    <NavLink to="profile/" className="active">
                       Profile
                     </NavLink>
                   </li>
-                  
+                  <li>
+                    <NavLink to="dashboard/" className="active">
+                      Dashboard
+                    </NavLink>
+                  </li>
                 </>
               ) : (
                 <ul className="flex gap-5">
                   <li>
-                    <NavLink to="/login" className="active">
+                    <NavLink to="login/" className="active">
                       Login
                     </NavLink>
-                    <NavLink to="/sign-up" className="active">
+                    <NavLink to="sign-up/" className="active">
                       SignUp
                     </NavLink>
                   </li>
