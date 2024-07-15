@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import img from "../assets/images/empty.png"
+import img from "../assets/images/empty.png";
 import RequestsCard from "./RequestsCard";
 const BloodCategory = () => {
   const bloodGroup = [
@@ -55,10 +55,12 @@ const BloodCategory = () => {
               ))}
             </div>
             <div className="request-list w-full">
-            {requestData.length === 0 && <img src={img} alt="" className="w-full h-full mx-auto"/>}
-              <div className="flex flex-wrap gap-5 w-full">
+              {requestData.length === 0 && (
+                <img src={img} alt="" className="w-full h-full mx-auto" />
+              )}
+              <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 w-full">
                 {requestData.map((item) => (
-                  <RequestsCard key={item.id} item={item}/>
+                  <RequestsCard key={item.id} item={item} />
                 ))}
               </div>
             </div>
