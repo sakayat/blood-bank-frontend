@@ -12,8 +12,9 @@ import Layout from "./components/Layout";
 import OngoingRequests from "./components/OngoingRequests";
 import DonationHistory from "./components/DonationHistory";
 import Footer from "./components/Footer";
+import ProtectedRoute from "./components/ProtectedRoute ";
 const App = () => {
-  const token = localStorage.getItem("authToken")
+  const token = localStorage.getItem("authToken");
   return (
     <div className="App flex flex-col h-screen">
       <Navbar />
@@ -22,10 +23,38 @@ const App = () => {
           <Route path="/" element={<Homepage />} />
           <Route path="sign-up/" element={<SignUp />} />
           <Route path="login/" element={<Login />} />
-          <Route path="profile/" element={<Profile />} />
-          <Route path="profile/details/" element={<ProfileDetailsForm />} />
-          <Route path="profile/update/:id" element={<UpdateProfileForm />} />
-          <Route path="dashboard/" element={<Layout />}>
+          <Route
+            path="profile/"
+            element={
+              <ProtectedRoute>
+                <Profile />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="profile/details/"
+            element={
+              <ProtectedRoute>
+                <ProfileDetailsForm />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="profile/update/:id"
+            element={
+              <ProtectedRoute>
+                <UpdateProfileForm />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="dashboard/"
+            element={
+              <ProtectedRoute>
+                <Layout />
+              </ProtectedRoute>
+            }
+          >
             <Route path="create-event/" element={<CreateEvent />} />
             <Route path="ongoing-requests/" element={<OngoingRequests />} />
             <Route path="donation-history/" element={<DonationHistory />} />
