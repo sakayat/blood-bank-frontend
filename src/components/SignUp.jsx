@@ -32,7 +32,7 @@ const SignUp = () => {
 
     if (res.ok) {
       localStorage.setItem("authToken", data.token);
-      navigate("/login");
+      return navigate("/login");
     }
     setError(data);
   };

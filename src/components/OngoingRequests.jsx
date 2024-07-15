@@ -2,11 +2,11 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const OngoingRequests = () => {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const token = localStorage.getItem("authToken");
   const [requests, setRequests] = useState([]);
 
-  const [error, setError] = useState(null)
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     fetchRequests();
@@ -38,14 +38,34 @@ const OngoingRequests = () => {
         },
       }
     );
-    
-    const data = await res.json()
 
-    if(res.ok){
-      return navigate("/dashboard/donation-history/")
+    const data = await res.json();
+
+    if (res.ok) {
+      return navigate("/dashboard/donation-history/");
     }
-    setError(data)
-    
+    setError(data);
+  };
+
+  const handleCancelRequest = async (id) => {
+    const res = await fetch(
+      `http://127.0.0.1:8000/api/donors/cancel-request/${id}/`,
+      {
+        method: "post",
+        headers: {
+          "Content-type": "application/json",
+          Authorization: `Token ${token}`,
+        },
+      }
+    );
+
+    const data = await res.json();
+
+    if (res.ok) {
+      return navigate("/dashboard/donation-history/");
+    }
+    setError(data.error);
+    console.log(data.error);
   };
 
   return (
@@ -97,17 +117,21 @@ const OngoingRequests = () => {
                       >
                         Accept
                       </button>
-                      <button className="text-rose-400">Cancel</button>
                     </div>
                   ) : (
-                    <button className="text-rose-400">Cancel</button>
+                    <button
+                      className="text-rose-400"
+                      onClick={() => handleCancelRequest(request.id)}
+                    >
+                      Cancel
+                    </button>
                   )}
                 </td>
               </tr>
             ))}
-            {error && <p className="py-3 text-rose-500">{error}</p>}
           </tbody>
         </table>
+        {error && <p className="py-3 text-rose-500">{error}</p>}
       </div>
     </div>
   );

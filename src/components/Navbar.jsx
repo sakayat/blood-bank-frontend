@@ -1,8 +1,29 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 
 const Navbar = () => {
   const token = localStorage.getItem("authToken");
+  const navigate = useNavigate();
+
+  const handleLogOut = async () => {
+    const res = await fetch("http://127.0.0.1:8000/api/accounts/logout/", {
+      method: "post",
+      headers: {
+        "Content-type": "application/json",
+        Authorization: `Token ${token}`,
+      },
+    });
+
+    if (res.ok) {
+      localStorage.removeItem("authToken");
+      return navigate("/login");
+    }
+    const data = await res.json();
+
+    console.log(data);
+    console.log(res);
+  };
+
   return (
     <div className="navbar sticky inset-x-0 top-0 z-10">
       <nav className="bg-white text-black border-b">
@@ -20,9 +41,20 @@ const Navbar = () => {
                     </NavLink>
                   </li>
                   <li>
-                    <NavLink to="dashboard/" className="active">
+                    <NavLink
+                      to="/dashboard/ongoing-requests/"
+                      className="active"
+                    >
                       Dashboard
                     </NavLink>
+                  </li>
+                  <li>
+                    <button
+                      className="py-3 px-4 default-btn rounded"
+                      onClick={handleLogOut}
+                    >
+                      Logout
+                    </button>
                   </li>
                 </>
               ) : (
@@ -31,6 +63,8 @@ const Navbar = () => {
                     <NavLink to="login/" className="active">
                       Login
                     </NavLink>
+                  </li>
+                  <li>
                     <NavLink to="sign-up/" className="active">
                       SignUp
                     </NavLink>

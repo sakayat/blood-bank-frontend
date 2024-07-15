@@ -27,7 +27,7 @@ const Login = () => {
 
     if (res.ok) {
       localStorage.setItem("authToken", data.token);
-      navigate("/");
+      return navigate("/");
     }
     setError(data);
   };
