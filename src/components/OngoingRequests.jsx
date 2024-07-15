@@ -1,8 +1,12 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const OngoingRequests = () => {
+  const navigate = useNavigate()
   const token = localStorage.getItem("authToken");
   const [requests, setRequests] = useState([]);
+
+  const [error, setError] = useState(null)
 
   useEffect(() => {
     fetchRequests();
@@ -21,6 +25,27 @@ const OngoingRequests = () => {
     );
     const data = await res.json();
     setRequests(data);
+  };
+
+  const handleAcceptRequest = async (id) => {
+    const res = await fetch(
+      `http://127.0.0.1:8000/api/donors/accept-request/${id}/`,
+      {
+        method: "post",
+        headers: {
+          "Content-type": "application/json",
+          Authorization: `Token ${token}`,
+        },
+      }
+    );
+    
+    const data = await res.json()
+
+    if(res.ok){
+      return navigate("/dashboard/donation-history/")
+    }
+    setError(data)
+    
   };
 
   return (
@@ -54,7 +79,7 @@ const OngoingRequests = () => {
           </thead>
           <tbody>
             {requests.map((request) => (
-              <tr class="bg-white border-b">
+              <tr class="bg-white border-b" key={request.id}>
                 <th scope="row" class="px-6 py-4 font-medium whitespace-nowrap">
                   {request.id}
                 </th>
@@ -65,8 +90,13 @@ const OngoingRequests = () => {
                 <td class="px-6 py-4">{request.status}</td>
                 <td class="px-6 py-4">
                   {request.status === "pending" ? (
-                    <div className="space-x-4">
-                      <button className="text-blue-400">Accept</button>
+                    <div className="flex flex-wrap- gap-3">
+                      <button
+                        className="text-blue-400"
+                        onClick={() => handleAcceptRequest(request.id)}
+                      >
+                        Accept
+                      </button>
                       <button className="text-rose-400">Cancel</button>
                     </div>
                   ) : (
@@ -75,6 +105,7 @@ const OngoingRequests = () => {
                 </td>
               </tr>
             ))}
+            {error && <p className="py-3 text-rose-500">{error}</p>}
           </tbody>
         </table>
       </div>
