@@ -29,10 +29,11 @@ const SignUp = () => {
     });
 
     const data = await res.json();
+    console.log(data);
+    
 
     if (res.ok) {
-      localStorage.setItem("authToken", data.token);
-      return navigate("/login");
+      return navigate(`/login/?${data}`);
     }
     setError(data);
   };

@@ -31,7 +31,9 @@ const Login = () => {
     }
     setError(data);
   };
-
+  const url = window.location.search.replace("?", "")
+  const decodeMsg = decodeURIComponent(url)
+  
   return (
     <section className="login">
       <div className="container mx-auto px-4">
@@ -46,6 +48,7 @@ const Login = () => {
             >
               <div className="py-3">
                 <h1 className="text-2xl font-bold">Login</h1>
+                {url && <p className="pt-3 text-rose-500">{decodeMsg}</p>}
               </div>
               <div className="form-control space-y-3">
                 <label htmlFor="username">Username</label>
@@ -77,6 +80,7 @@ const Login = () => {
                   {error.error ? error.error : error.username}
                 </p>
               )}
+
             </form>
           </div>
         </div>
