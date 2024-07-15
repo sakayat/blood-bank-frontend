@@ -33,7 +33,7 @@ const CreateEvent = () => {
       event_description: description,
     };
 
-    const res = await fetch(`http://127.0.0.1:8000/api/donors/blood-request/`, {
+    const res = await fetch(`https://blood-bank-backend-1sf7.onrender.com/api/donors/blood-request/`, {
       method: "post",
       headers: {
         "Content-type": "application/json",

@@ -13,7 +13,7 @@ const UpdateProfileForm = () => {
 
   const fetchUserData = async () => {
     const res = await fetch(
-      `http://127.0.0.1:8000/api/donors/update-profile/${id}/`,
+      `https://blood-bank-backend-1sf7.onrender.com/api/donors/update-profile/${id}/`,
       {
         method: "get",
         headers: {

@@ -23,7 +23,7 @@ const DonorListCard = ({ donor }) => {
         <span className=" text-black/60 text-md">{donor.last_donation}</span>
       </div>
       <Link
-        to="/"
+        to="dashboard/create-event/"
         className="default-btn hover:text-white py-3 text-center rounded block"
       >
         Request

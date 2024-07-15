@@ -22,7 +22,7 @@ const BloodCategory = () => {
 
   const fetchRequestData = async (group) => {
     const res = await fetch(
-      `http://127.0.0.1:8000/api/donors/blood-request-list/?blood_group=${
+      `https://blood-bank-backend-1sf7.onrender.com/api/donors/blood-request-list/?blood_group=${
         group ? group : ""
       }`
     );

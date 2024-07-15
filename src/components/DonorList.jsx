@@ -11,7 +11,7 @@ const DonorList = () => {
   }, []);
 
   const fetchData = async () => {
-    const res = await fetch("http://127.0.0.1:8000/api/donors/list/");
+    const res = await fetch("https://blood-bank-backend-1sf7.onrender.com/api/donors/list/");
     const data = await res.json();
     setDonorList(data);
   };

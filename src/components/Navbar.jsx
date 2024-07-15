@@ -6,7 +6,7 @@ const Navbar = () => {
   const navigate = useNavigate();
 
   const handleLogOut = async () => {
-    const res = await fetch("http://127.0.0.1:8000/api/accounts/logout/", {
+    const res = await fetch("https://blood-bank-backend-1sf7.onrender.com/api/accounts/logout/", {
       method: "post",
       headers: {
         "Content-type": "application/json",
@@ -30,7 +30,7 @@ const Navbar = () => {
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between h-20">
             <div className="logo">
-              <NavLink to="/">Blood Bank</NavLink>
+              <NavLink to="/">Humane Donor</NavLink>
             </div>
             <ul className="flex items-center gap-8" id="nav-links">
               {token ? (

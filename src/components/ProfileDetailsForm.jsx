@@ -39,7 +39,7 @@ const ProfileDetailsForm = ({ user, id }) => {
 
     if (user) {
       const res = await fetch(
-        `http://127.0.0.1:8000/api/donors/update-profile/${id}/`,
+        `https://blood-bank-backend-1sf7.onrender.com/api/donors/update-profile/${id}/`,
         {
           method: "put",
           headers: {
@@ -53,7 +53,7 @@ const ProfileDetailsForm = ({ user, id }) => {
        return navigate("/profile")
       }
     } else {
-      const res = await fetch("http://127.0.0.1:8000/api/donors/profile/", {
+      const res = await fetch("https://blood-bank-backend-1sf7.onrender.com/api/donors/profile/", {
         method: "post",
         headers: {
           "Content-type": "application/json",

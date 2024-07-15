@@ -14,7 +14,7 @@ const OngoingRequests = () => {
 
   const fetchRequests = async () => {
     const res = await fetch(
-      "http://127.0.0.1:8000/api/donors/ongoing-requests/",
+      "https://blood-bank-backend-1sf7.onrender.com/api/donors/ongoing-requests/",
       {
         method: "get",
         headers: {
@@ -29,7 +29,7 @@ const OngoingRequests = () => {
 
   const handleAcceptRequest = async (id) => {
     const res = await fetch(
-      `http://127.0.0.1:8000/api/donors/accept-request/${id}/`,
+      `https://blood-bank-backend-1sf7.onrender.com/api/donors/accept-request/${id}/`,
       {
         method: "post",
         headers: {
@@ -49,7 +49,7 @@ const OngoingRequests = () => {
 
   const handleCancelRequest = async (id) => {
     const res = await fetch(
-      `http://127.0.0.1:8000/api/donors/cancel-request/${id}/`,
+      `https://blood-bank-backend-1sf7.onrender.com/api/donors/cancel-request/${id}/`,
       {
         method: "post",
         headers: {

@@ -11,7 +11,7 @@ const Profile = () => {
   }, []);
 
   const fetchProfileInfo = async () => {
-    const res = await fetch("http://127.0.0.1:8000/api/donors/profile/", {
+    const res = await fetch("https://blood-bank-backend-1sf7.onrender.com/api/donors/profile/", {
       method: "get",
       headers: {
         "Content-type": "application/json",

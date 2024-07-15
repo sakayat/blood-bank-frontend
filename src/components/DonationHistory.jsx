@@ -9,7 +9,7 @@ const DonationHistory = () => {
 
   const fetchRequests = async () => {
     const res = await fetch(
-      "http://127.0.0.1:8000/api/donors/donation-history/",
+      "https://blood-bank-backend-1sf7.onrender.com/api/donors/donation-history/",
       {
         method: "get",
         headers: {

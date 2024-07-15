@@ -15,7 +15,7 @@ const Login = () => {
       username: username,
       password: password,
     };
-    const res = await fetch("http://127.0.0.1:8000/api/accounts/login/", {
+    const res = await fetch("https://blood-bank-backend-1sf7.onrender.com/api/accounts/login/", {
       method: "post",
       headers: {
         "Content-type": "application/json",
