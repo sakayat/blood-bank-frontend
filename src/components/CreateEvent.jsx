@@ -42,7 +42,7 @@ const CreateEvent = () => {
       body: JSON.stringify(userObj),
     });
     if (res.ok) {
-      return navigate("/dashboard");
+      return navigate("/dashboard/ongoing-requests");
     }
     const data = await res.json();
     setError(data);

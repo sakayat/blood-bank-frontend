@@ -9,6 +9,7 @@ import UpdateProfileForm from "./components/UpdateProfileForm";
 import Dashboard from "./components/Dashboard";
 import CreateEvent from "./components/CreateEvent";
 import Layout from "./components/Layout";
+import OngoingRequests from "./components/OngoingRequests";
 const App = () => {
   return (
     <div>
@@ -20,12 +21,9 @@ const App = () => {
         <Route path="profile/" element={<Profile />} />
         <Route path="profile/details/" element={<ProfileDetailsForm />} />
         <Route path="profile/update/:id" element={<UpdateProfileForm />} />
-        {/* <Route path="dashboard/">
-          <Route index element={<Dashboard />} />
-          <Route path="create-event/" element={<CreateEvent />} />
-        </Route> */}
         <Route path="dashboard/" element={<Layout />}>
-        <Route path="create-event/" element={<CreateEvent />} />
+          <Route path="create-event/" element={<CreateEvent />} />
+          <Route path="ongoing-requests/" element={<OngoingRequests />} />
         </Route>
       </Routes>
     </div>
