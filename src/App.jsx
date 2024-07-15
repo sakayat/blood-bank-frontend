@@ -11,10 +11,12 @@ import CreateEvent from "./components/CreateEvent";
 import Layout from "./components/Layout";
 import OngoingRequests from "./components/OngoingRequests";
 import DonationHistory from './components/DonationHistory';
+import Footer from "./components/Footer";
 const App = () => {
   return (
-    <div>
+    <div className="App flex flex-col h-screen">
       <Navbar />
+      <main className="flex-grow">
       <Routes>
         <Route path="/" element={<Homepage />} />
         <Route path="sign-up/" element={<SignUp />} />
@@ -28,6 +30,8 @@ const App = () => {
           <Route path="donation-history/" element={<DonationHistory />}/>
         </Route>
       </Routes>
+      </main>
+      <Footer />
     </div>
   );
 };
