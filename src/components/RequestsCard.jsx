@@ -8,12 +8,9 @@ const RequestsCard = ({ item }) => {
     >
       <div className="space-x-2">
         <span>Blood Group:</span>
-        <span className=" text-black/60 text-md capitalize">{item.blood_group}</span>
-      </div>     
-      
-      <div className="space-x-2">
-        <span>Event:</span>
-        <span className=" text-black/60 text-md capitalize">{item.event_description}</span>
+        <span className=" text-black/60 text-md capitalize">
+          {item.blood_group}
+        </span>
       </div>
       <div className="space-x-2">
         <span>Location:</span>
@@ -25,7 +22,19 @@ const RequestsCard = ({ item }) => {
       </div>
       <div className="space-x-2">
         <span>status:</span>
-        <span className={`text-md capitalize ${item.status === "accepted" ? "text-green-700": "text-rose-500"}`}>{item.status}</span>
+        <span
+          className={`text-md capitalize ${
+            item.status === "accepted" ? "text-green-700" : "text-rose-500"
+          }`}
+        >
+          {item.status}
+        </span>
+      </div>
+      <div className="space-x-2">
+        <span>Event:</span>
+        <span className=" text-black/60 text-md capitalize">
+          {item.event_description}
+        </span>
       </div>
     </div>
   );

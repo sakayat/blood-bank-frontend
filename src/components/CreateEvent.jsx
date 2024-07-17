@@ -33,14 +33,17 @@ const CreateEvent = () => {
       event_description: description,
     };
 
-    const res = await fetch(`https://blood-bank-backend-1sf7.onrender.com/api/donors/blood-request/`, {
-      method: "post",
-      headers: {
-        "Content-type": "application/json",
-        Authorization: `Token ${token}`,
-      },
-      body: JSON.stringify(userObj),
-    });
+    const res = await fetch(
+      `https://blood-bank-backend-1sf7.onrender.com/api/donors/blood-request/`,
+      {
+        method: "post",
+        headers: {
+          "Content-type": "application/json",
+          Authorization: `Token ${token}`,
+        },
+        body: JSON.stringify(userObj),
+      }
+    );
     if (res.ok) {
       return navigate("/dashboard/ongoing-requests");
     }
