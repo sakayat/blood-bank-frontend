@@ -24,7 +24,7 @@ const BloodCategory = () => {
 
   const fetchRequestData = async (group) => {
     const res = await fetch(
-      `http://127.0.0.1:8000/api/donors/blood-request-list/?search=${
+      `${import.meta.env.VITE_API_BASE_URL}/api/donors/blood-request-list/?search=${
         group ? group : ""
       }`
     );

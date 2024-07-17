@@ -9,7 +9,7 @@ const DonationHistory = () => {
 
   const fetchRequests = async () => {
     const res = await fetch(
-      "https://blood-bank-backend-1sf7.onrender.com/api/donors/donation-history/",
+      `${import.meta.env.VITE_API_BASE_URL}/api/donors/donation-history/`,
       {
         method: "get",
         headers: {
@@ -23,37 +23,47 @@ const DonationHistory = () => {
     setDonations(data);
   };
 
-
   return (
     <section className="history">
       <div className="text-3xl pb-3 border-b w-full">Donation History</div>
-      <div class="relative overflow-x-auto">
-        <table class="w-full text-sm text-left text-gray-600 ">
-          <thead class="text-xs text-gray-700 bg-gray-50">
+      <div className="relative overflow-x-auto">
+        <table className="w-full text-sm text-left text-gray-600 ">
+          <thead className="text-xs text-gray-700 bg-gray-50">
             <tr>
-              <th scope="col" class="px-6 py-3">
+              <th scope="col" className="px-6 py-3">
                 ID
               </th>
-              <th scope="col" class="px-6 py-3">
+              <th scope="col" className="px-6 py-3">
                 Donor
               </th>
-              <th scope="col" class="px-6 py-3">
+              <th scope="col" className="px-6 py-3">
                 recipient
               </th>
-              <th scope="col" class="px-6 py-3">
+              <th scope="col" className="px-6 py-3">
                 status
               </th>
             </tr>
           </thead>
           <tbody>
             {donations.map((donation) => (
-              <tr class="bg-white border-b">
-                <th scope="row" class="px-6 py-4 font-medium whitespace-nowrap">
+              <tr className="bg-white border-b" key={donation.id}>
+                <th
+                  scope="row"
+                  className="px-6 py-4 font-medium whitespace-nowrap"
+                >
                   {donation.id}
                 </th>
-                <td class="px-6 py-4">{donation.donor}</td>
-                <td class="px-6 py-4">{donation.recipient}</td>
-                <td class="px-6 py-4">{donation.status}</td>
+                <td className="px-6 py-4">{donation.donor}</td>
+                <td className="px-6 py-4">{donation.recipient}</td>
+                <td
+                  className={`px-6 py-4 ${
+                    donation.status === "accepted"
+                      ? "text-green-500"
+                      : "text-rose-500"
+                  }`}
+                >
+                  {donation.status}
+                </td>
               </tr>
             ))}
           </tbody>

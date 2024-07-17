@@ -3,7 +3,6 @@ import { useNavigate } from "react-router-dom";
 import img from "../assets/images//add_information.png";
 
 const ProfileDetailsForm = ({ user, id }) => {
-
   const token = localStorage.getItem("authToken");
   const navigate = useNavigate();
   const [firstName, setFirstName] = useState("");
@@ -39,7 +38,7 @@ const ProfileDetailsForm = ({ user, id }) => {
 
     if (user) {
       const res = await fetch(
-        `https://blood-bank-backend-1sf7.onrender.com/api/donors/update-profile/${id}/`,
+        `${import.meta.env.VITE_API_BASE_URL}/api/donors/update-profile/${id}/`,
         {
           method: "put",
           headers: {
@@ -50,24 +49,27 @@ const ProfileDetailsForm = ({ user, id }) => {
         }
       );
       if (res.ok) {
-       return navigate("/profile")
+        return navigate("/profile/");
       }
     } else {
-      const res = await fetch("https://blood-bank-backend-1sf7.onrender.com/api/donors/profile/", {
-        method: "post",
-        headers: {
-          "Content-type": "application/json",
-          Authorization: `Token ${token}`,
-        },
-        body: JSON.stringify(userObj),
-      });
+      const res = await fetch(
+        `${import.meta.env.VITE_API_BASE_URL}/api/donors/profile/`,
+        {
+          method: "post",
+          headers: {
+            "Content-type": "application/json",
+            Authorization: `Token ${token}`,
+          },
+          body: JSON.stringify(userObj),
+        }
+      );
 
       const data = await res.json();
 
       setError(data);
 
       if (res.ok) {
-       return navigate("profile/");
+        return navigate("/profile/");
       }
     }
   };
@@ -77,7 +79,7 @@ const ProfileDetailsForm = ({ user, id }) => {
       <div className="container mx-auto">
         <div className="py-5">
           <h2 className="text-2xl font-semibold text-center">
-           {user ? "Update Profile" : " Add Profile Details"}
+            {user ? "Update Profile" : " Add Profile Details"}
           </h2>
         </div>
         <div className="grid grid-cols1 lg:grid-cols-2 place-items-center gap-5">
@@ -129,7 +131,6 @@ const ProfileDetailsForm = ({ user, id }) => {
                 value={address}
                 onChange={(e) => setAddress(e.target.value)}
                 rows={2}
-                res
               />
             </div>
             <div className="form-control space-y-3">

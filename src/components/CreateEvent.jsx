@@ -34,7 +34,7 @@ const CreateEvent = () => {
     };
 
     const res = await fetch(
-      `https://blood-bank-backend-1sf7.onrender.com/api/donors/blood-request/`,
+      `${import.meta.env.VITE_API_BASE_URL}/api/donors/blood-request/`,
       {
         method: "post",
         headers: {

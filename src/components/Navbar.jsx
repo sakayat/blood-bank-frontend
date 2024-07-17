@@ -6,13 +6,16 @@ const Navbar = () => {
   const navigate = useNavigate();
 
   const handleLogOut = async () => {
-    const res = await fetch("https://blood-bank-backend-1sf7.onrender.com/api/accounts/logout/", {
-      method: "post",
-      headers: {
-        "Content-type": "application/json",
-        Authorization: `Token ${token}`,
-      },
-    });
+    const res = await fetch(
+      `${import.meta.env.VITE_API_BASE_URL}/api/accounts/logout/`,
+      {
+        method: "post",
+        headers: {
+          "Content-type": "application/json",
+          Authorization: `Token ${token}`,
+        },
+      }
+    );
 
     if (res.ok) {
       localStorage.removeItem("authToken");

@@ -14,7 +14,7 @@ const OngoingRequests = () => {
 
   const fetchRequests = async () => {
     const res = await fetch(
-      "https://blood-bank-backend-1sf7.onrender.com/api/donors/ongoing-requests/",
+      `${import.meta.env.VITE_API_BASE_URL}/api/donors/ongoing-requests/`,
       {
         method: "get",
         headers: {
@@ -29,7 +29,7 @@ const OngoingRequests = () => {
 
   const handleAcceptRequest = async (id) => {
     const res = await fetch(
-      `https://blood-bank-backend-1sf7.onrender.com/api/donors/accept-request/${id}/`,
+      `${import.meta.env.VITE_API_BASE_URL}/api/donors/accept-request/${id}/`,
       {
         method: "post",
         headers: {
@@ -49,7 +49,7 @@ const OngoingRequests = () => {
 
   const handleCancelRequest = async (id) => {
     const res = await fetch(
-      `https://blood-bank-backend-1sf7.onrender.com/api/donors/cancel-request/${id}/`,
+      `${import.meta.env.VITE_API_BASE_URL}/api/donors/cancel-request/${id}/`,
       {
         method: "post",
         headers: {
@@ -65,50 +65,49 @@ const OngoingRequests = () => {
       return navigate("/dashboard/donation-history/");
     }
     setError(data.error);
-    console.log(data.error);
   };
 
   return (
     <div>
-      <div class="relative overflow-x-auto">
-        <table class="w-full text-sm text-left text-gray-600 ">
-          <thead class="text-xs text-gray-700 bg-gray-50">
+      <div className="relative overflow-x-auto">
+        <table className="w-full text-sm text-left text-gray-600 ">
+          <thead className="text-xs text-gray-700 bg-gray-50">
             <tr>
-              <th scope="col" class="px-6 py-3">
+              <th scope="col" className="px-6 py-3">
                 ID
               </th>
-              <th scope="col" class="px-6 py-3">
+              <th scope="col" className="px-6 py-3">
                 Donor
               </th>
-              <th scope="col" class="px-6 py-3">
+              <th scope="col" className="px-6 py-3">
                 Location
               </th>
-              <th scope="col" class="px-6 py-3">
+              <th scope="col" className="px-6 py-3">
                 Date
               </th>
-              <th scope="col" class="px-6 py-3">
+              <th scope="col" className="px-6 py-3">
                 Event
               </th>
-              <th scope="col" class="px-6 py-3">
+              <th scope="col" className="px-6 py-3">
                 Status
               </th>
-              <th scope="col" class="px-6 py-3">
+              <th scope="col" className="px-6 py-3">
                 Action
               </th>
             </tr>
           </thead>
           <tbody>
             {requests.map((request) => (
-              <tr class="bg-white border-b" key={request.id}>
-                <th scope="row" class="px-6 py-4 font-medium whitespace-nowrap">
+              <tr className="bg-white border-b" key={request.id}>
+                <th scope="row" className="px-6 py-4 font-medium whitespace-nowrap">
                   {request.id}
                 </th>
-                <td class="px-6 py-4">{request.donor}</td>
-                <td class="px-6 py-4">{request.location}</td>
-                <td class="px-6 py-4">{request.date}</td>
-                <td class="px-6 py-4">{request.event_description}</td>
-                <td class="px-6 py-4">{request.status}</td>
-                <td class="px-6 py-4">
+                <td className="px-6 py-4">{request.donor}</td>
+                <td className="px-6 py-4">{request.location}</td>
+                <td className="px-6 py-4">{request.date}</td>
+                <td className="px-6 py-4">{request.event_description}</td>
+                <td className="px-6 py-4">{request.status}</td>
+                <td className="px-6 py-4">
                   {request.status === "pending" ? (
                     <div className="flex flex-wrap- gap-3">
                       <button

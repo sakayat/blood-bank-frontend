@@ -9,9 +9,9 @@ const DonorList = () => {
   useEffect(() => {
     fetchData();
   }, []);
-
+  
   const fetchData = async () => {
-    const res = await fetch("https://blood-bank-backend-1sf7.onrender.com/api/donors/list/");
+    const res = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/donors/list/`);
     const data = await res.json();
     setDonorList(data);
   };

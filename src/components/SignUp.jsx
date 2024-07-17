@@ -20,7 +20,7 @@ const SignUp = () => {
       confirm_password: confirmPassword,
     };
 
-    const res = await fetch("https://blood-bank-backend-1sf7.onrender.com/api/accounts/register/", {
+    const res = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/accounts/register/`, {
       method: "post",
       headers: {
         "Content-type": "application/json",

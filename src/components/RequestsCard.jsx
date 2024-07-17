@@ -8,22 +8,22 @@ const RequestsCard = ({ item }) => {
     >
       <div className="space-x-2">
         <span>Blood Group:</span>
-        <span className=" text-black/60 text-md capitalize">
+        <span className=" text-black/60 text-sm capitalize">
           {item.blood_group}
         </span>
       </div>
       <div className="space-x-2">
         <span>Location:</span>
-        <span className=" text-black/60 text-md capitalize">Dhaka</span>
+        <span className=" text-black/60 text-sm capitalize">{item.location}</span>
       </div>
       <div className="space-x-2">
         <span>Contact:</span>
-        <span className=" text-black/60 text-md capitalize">01757831694</span>
+        <span className=" text-black/60 text-sm capitalize">{item.contact}</span>
       </div>
       <div className="space-x-2">
         <span>status:</span>
         <span
-          className={`text-md capitalize ${
+          className={`text-sm capitalize ${
             item.status === "accepted" ? "text-green-700" : "text-rose-500"
           }`}
         >
@@ -32,7 +32,7 @@ const RequestsCard = ({ item }) => {
       </div>
       <div className="space-x-2">
         <span>Event:</span>
-        <span className=" text-black/60 text-md capitalize">
+        <span className=" text-black/60 text-sm capitalize">
           {item.event_description}
         </span>
       </div>
