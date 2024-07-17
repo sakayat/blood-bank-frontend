@@ -3,6 +3,9 @@
   font-family: Montserrat, sans-serif;
   line-height: 1.5;
   font-weight: 500;
+  --primary-color: #ea062b;
+  --secondary-color: #111111;
+  --gray: #e7e7e7;
 }
 
 a {
@@ -11,7 +14,7 @@ a {
   text-decoration: inherit;
 }
 a:hover {
-  color: #c6414c;
+  color: var(--primary-color)
 }
 
 h1 {
@@ -24,13 +27,13 @@ h1 {
 @tailwind utilities;
 
 .default-btn {
-  background-color: #c6414c;
+  background-color: var(--primary-color);
   color: white;
 }
 
 .hero-section {
   background: url("./assets/images/patient-donating-blood.jpg");
-  background-position: center center;
+  background-position: top center;
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -45,23 +48,24 @@ h1 {
 }
 
 .quote-icon{
-  color: #c6414c;
+  color: var(--secondary-color)
 }
 
 .donor-list{
-  background-color: #c6414c;
+  background-color: var(--primary-color);
   color: #fff;
 }
 
 .request-link{
-  color: #c6414c;
+  color: var(--secondary-color)
 }
 
 .requests-list{
   background-color: #F8F9FA;
 }
 
+
 .footer{
-  background-color: #c6414c;
+  background-color: var(--primary-color);
   color: #fff;
 }

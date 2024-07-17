@@ -6,7 +6,7 @@ const HeroSection = () => {
         <div className="relative">
             <div className="overlay w-full h-full absolute"></div>
             <div className="hero-content w-full lg:w-1/2 ml-auto relative">
-                <div className="h-screen flex items-center justify-center">
+                <div className="h-[80vh] flex items-center justify-center">
                     <div className="container mx-auto px-4">
                         <div className="content text-center lg:text-start space-y-5">
                             <h1 className="text-4xl lg:text-6xl">Donate Your Blood to Us, Save More Life Together</h1>
