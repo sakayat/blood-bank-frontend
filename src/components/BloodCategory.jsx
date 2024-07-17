@@ -13,7 +13,8 @@ const BloodCategory = () => {
     { id: 7, type: "o-positive" },
     { id: 8, type: "o-negative" },
   ];
-
+  
+  const [donorLocation, setDonorLocation] = useState("")
   const [requestData, setRequestData] = useState([]);
 
   useEffect(() => {
@@ -34,6 +35,11 @@ const BloodCategory = () => {
     fetchRequestData(group);
   };
 
+  const handleSearch = async (e) => {
+    e.preventDefault()
+    
+  }
+
   return (
     <section className="pt-10">
       <div className="py-5">
@@ -41,11 +47,11 @@ const BloodCategory = () => {
       </div>
       <div className="requests-list">
         <div className="container mx-auto">
-          <div className="blood-group flex flex-col lg:flex-row items-start gap-8 py-5">
-            <div className="groups flex flex-col bg-black w-full lg:w-44 rounded">
+          <div className="blood-group py-5 space-y-5">
+            <div className="groups flex flex-wrap lg:justify-between gap-2 w-full rounded py-2">
               {bloodGroup.map((group) => (
                 <Link
-                  className="text-white py-3 px-4 border-b capitalize"
+                  className="py-3 px-4 border-l capitalize"
                   key={group.id}
                   onClick={() => handleBloodTypes(group.type)}
                   to={`?/blood_group/${group.type}`}
@@ -53,6 +59,17 @@ const BloodCategory = () => {
                   {group.type}
                 </Link>
               ))}
+            </div>
+            <div className="search">
+              <form onSubmit={handleSearch}>
+              <input
+                type="search"
+                placeholder="Search by location"
+                className="outline-none py-3 px-6 w-full border border-black rounded"
+                value={donorLocation}
+                onChange={(e) => setDonorLocation(e.target.value)}
+              />
+              </form>
             </div>
             <div className="request-list w-full">
               {requestData.length === 0 && (

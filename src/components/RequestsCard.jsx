@@ -4,27 +4,28 @@ const RequestsCard = ({ item }) => {
   return (
     <div
       key={item.id}
-      className="request-card bg-white shadow-xl rounded space-y-3 py-3 px-6"
+      className="request-card bg-white rounded border border-black space-y-3 py-3 px-6"
     >
       <div className="space-x-2">
-        <span className="font-semibold">Blood Group:</span>
-        <span className=" text-black/60 text-md">{item.blood_group}</span>
+        <span>Blood Group:</span>
+        <span className=" text-black/60 text-md capitalize">{item.blood_group}</span>
+      </div>     
+      
+      <div className="space-x-2">
+        <span>Event:</span>
+        <span className=" text-black/60 text-md capitalize">{item.event_description}</span>
       </div>
       <div className="space-x-2">
-        <span className="font-semibold">volume:</span>
-        <span className=" text-black/60 text-md">{item.volume}</span>
+        <span>Location:</span>
+        <span className=" text-black/60 text-md capitalize">Dhaka</span>
       </div>
       <div className="space-x-2">
-        <span className="font-semibold">Event:</span>
-        <span className=" text-black/60 text-md">{item.event_description}</span>
+        <span>Contact:</span>
+        <span className=" text-black/60 text-md capitalize">01757831694</span>
       </div>
       <div className="space-x-2">
-        <span className="font-semibold">status:</span>
-        <span className=" text-black/60 text-md">{item.status}</span>
-      </div>
-      <div className="space-x-2">
-        <span className="font-semibold">Date:</span>
-        <span className=" text-black/60 text-md">{item.date}</span>
+        <span>status:</span>
+        <span className={`text-md capitalize ${item.status === "accepted" ? "text-green-700": "text-rose-500"}`}>{item.status}</span>
       </div>
     </div>
   );
