@@ -12,6 +12,9 @@ const DashboardLayout = () => {
                 <Link to="request-blood/" className="py-3 px-4 border-b">
                   Request Blood
                 </Link>
+                <Link to="own-requests/" className="py-3 px-4 border-b">
+                  Own Requests
+                </Link>
                 <Link to="ongoing-requests/" className="py-3 px-4 border-b">
                   Ongoing Requests
                 </Link>

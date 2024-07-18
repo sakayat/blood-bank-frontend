@@ -12,6 +12,7 @@ import DonationHistory from "./components/DonationHistory";
 import Footer from "./components/Footer";
 import ProtectedRoute from "./components/ProtectedRoute ";
 import RequestBloodForm from "./components/RequestBloodForm";
+import OwnRequests from "./components/OwnRequests";
 const App = () => {
   return (
     <div className="App flex flex-col h-screen">
@@ -54,6 +55,7 @@ const App = () => {
             }
           >
             <Route path="request-blood/" element={<RequestBloodForm />} />
+            <Route path="own-requests/" element={<OwnRequests />} />
             <Route path="ongoing-requests/" element={<OngoingRequests />} />
             <Route path="donation-history/" element={<DonationHistory />} />
           </Route>

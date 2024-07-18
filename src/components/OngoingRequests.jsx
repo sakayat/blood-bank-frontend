@@ -68,8 +68,7 @@ const OngoingRequests = () => {
   };
 
   return (
-    <div>
-      <div className="relative overflow-x-auto">
+    <div className="relative overflow-x-auto">
         <table className="w-full text-sm text-left text-gray-600 ">
           <thead className="text-xs text-gray-700 bg-gray-50">
             <tr>
@@ -146,7 +145,6 @@ const OngoingRequests = () => {
         </table>
         {error && <p className="py-3 text-rose-500">{error}</p>}
       </div>
-    </div>
   );
 };
 

@@ -47,7 +47,7 @@ const RequestBlood = () => {
       }
     );
     if (res.ok) {
-      return navigate("/");
+      return navigate("/dashboard/own-requests/");
     }
     const data = await res.json();
     setError(data);
