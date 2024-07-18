@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const OwnRequests = () => {
   const navigate = useNavigate();
@@ -27,9 +27,22 @@ const OwnRequests = () => {
     setRequests(data);
   };
 
-//   const handleUpdateRequest = async (id) => {};
-
-//   const handleDeleteRequest = (async = (id) => []);
+  const handleDeleteRequest = async (id) => {
+    const res = await fetch(
+      `${import.meta.env.VITE_API_BASE_URL}/api/donors/blood-request/${id}/`,
+      {
+        method: "delete",
+        headers: {
+          "Content-type": "application/json",
+          Authorization: `Token ${token}`,
+        },
+      }
+    );
+    const updateRequests = requests.filter((item) => item.id != id);
+    if (res.ok) {
+      setRequests(updateRequests);
+    }
+  };
 
   return (
     <div className="relative overflow-x-auto">
@@ -47,7 +60,7 @@ const OwnRequests = () => {
               Location
             </th>
             <th scope="col" className="px-6 py-3">
-              Date
+              Units
             </th>
             <th scope="col" className="px-6 py-3">
               Event
@@ -71,12 +84,12 @@ const OwnRequests = () => {
               </th>
               <td className="px-6 py-4">{request.donor}</td>
               <td className="px-6 py-4">{request.location}</td>
-              <td className="px-6 py-4">{request.date}</td>
+              <td className="px-6 py-4">{request.units}</td>
               <td className="px-6 py-4">{request.event_description}</td>
               <td
                 className={`px-6 py-4 ${
                   request.status === "pending"
-                    ? "text-yellow-400"
+                    ? "text-orange-500"
                     : "text-green-600"
                 }`}
               >
@@ -84,12 +97,12 @@ const OwnRequests = () => {
               </td>
               <td className="px-6 py-4">
                 <div className="flex flex-wrap- gap-3">
-                  <button
+                  <Link
+                    to={`/dashboard/update-request/${request.id}`}
                     className="text-blue-400"
-                    onClick={() => handleUpdateRequest(request.id)}
                   >
                     Update
-                  </button>
+                  </Link>
                   <button
                     className="text-blue-400"
                     onClick={() => handleDeleteRequest(request.id)}

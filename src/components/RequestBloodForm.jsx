@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
-const RequestBlood = () => {
-
+const RequestBloodForm = ({ bloodRequest, id }) => {
   const token = localStorage.getItem("authToken");
   const navigate = useNavigate();
 
@@ -25,6 +24,16 @@ const RequestBlood = () => {
 
   const [error, setError] = useState("");
 
+  useEffect(() => {
+    if (bloodRequest) {
+      setGroup(bloodRequest.blood_group);
+      setUnits(bloodRequest.units);
+      setLocation(bloodRequest.location);
+      setContact(bloodRequest.contact);
+      setDescription(bloodRequest.event_description);
+    }
+  }, [bloodRequest]);
+
   const handleSubmitRequest = async (e) => {
     e.preventDefault();
     const userObj = {
@@ -35,27 +44,48 @@ const RequestBlood = () => {
       event_description: description,
     };
 
-    const res = await fetch(
-      `${import.meta.env.VITE_API_BASE_URL}/api/donors/blood-request/`,
-      {
-        method: "post",
-        headers: {
-          "Content-type": "application/json",
-          Authorization: `Token ${token}`,
-        },
-        body: JSON.stringify(userObj),
+    if (bloodRequest) {
+      const res = await fetch(
+        `${import.meta.env.VITE_API_BASE_URL}/api/donors/blood-request/${id}/`,
+        {
+          method: "put",
+          headers: {
+            "Content-type": "application/json",
+            Authorization: `Token ${token}`,
+          },
+          body: JSON.stringify(userObj),
+        }
+      );
+      if (res.ok) {
+        return navigate("/dashboard/own-requests/");
       }
-    );
-    if (res.ok) {
-      return navigate("/dashboard/own-requests/");
+    } else {
+      const res = await fetch(
+        `${import.meta.env.VITE_API_BASE_URL}/api/donors/blood-request/`,
+        {
+          method: "post",
+          headers: {
+            "Content-type": "application/json",
+            Authorization: `Token ${token}`,
+          },
+          body: JSON.stringify(userObj),
+        }
+      );
+
+      if (res.ok) {
+        return navigate("/dashboard/own-requests/");
+      }
+      const data = await res.json();
+      setError(data);
+      console.log(data);
     }
-    const data = await res.json();
-    setError(data);
   };
 
   return (
     <section className="request-blood">
-      <div className="text-3xl pb-3 border-b w-full">Request Blood</div>
+      <div className="text-3xl pb-3 border-b w-full">
+        {bloodRequest ? "Update Request" : "Blood Request"}
+      </div>
       <form className="py-5  space-y-3 w-full" onSubmit={handleSubmitRequest}>
         <div className="form-control space-y-3">
           <label htmlFor="group">Blood Group</label>
@@ -65,6 +95,7 @@ const RequestBlood = () => {
             value={group}
             onChange={(e) => setGroup(e.target.value)}
           >
+            <option value="">Select Group</option>
             {bloodGroup.map((group) => (
               <option value={group.value} key={group.id}>
                 {group.value}
@@ -122,8 +153,8 @@ const RequestBlood = () => {
           <p className="py-3 text-rose-500">
             {(error && error.blood_group) ||
               error.location ||
-              error.date ||
-              error.volume ||
+              error.contact ||
+              error.units ||
               error.event_description}
           </p>
         )}
@@ -133,4 +164,4 @@ const RequestBlood = () => {
   );
 };
 
-export default RequestBlood;
+export default RequestBloodForm;
