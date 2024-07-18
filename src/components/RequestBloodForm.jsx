@@ -1,35 +1,37 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
-const CreateEvent = () => {
+const RequestBlood = () => {
+
   const token = localStorage.getItem("authToken");
   const navigate = useNavigate();
+
+  const bloodGroup = [
+    { id: 1, value: "A+" },
+    { id: 2, value: "A-" },
+    { id: 3, value: "B+" },
+    { id: 4, value: "B-" },
+    { id: 5, value: "AB+" },
+    { id: 6, value: "AB-" },
+    { id: 7, value: "O+" },
+    { id: 8, value: "O+" },
+  ];
+
   const [group, setGroup] = useState("");
+  const [units, setUnits] = useState("");
   const [location, setLocation] = useState("");
-  const [date, setDate] = useState("");
-  const [volume, setVolume] = useState("");
   const [description, setDescription] = useState("");
+  const [contact, setContact] = useState("");
 
   const [error, setError] = useState("");
 
-  const bloodGroup = [
-    { id: 1, value: "a-positive" },
-    { id: 2, value: "a-negative" },
-    { id: 3, value: "b-positive" },
-    { id: 4, value: "b-negative" },
-    { id: 5, value: "ab-positive" },
-    { id: 6, value: "ab-negative" },
-    { id: 7, value: "o-positive" },
-    { id: 8, value: "o-negative" },
-  ];
-
-  const handleSubmitEvent = async (e) => {
+  const handleSubmitRequest = async (e) => {
     e.preventDefault();
     const userObj = {
       blood_group: group,
+      units: units,
       location: location,
-      date: date,
-      volume: volume,
+      contact: contact,
       event_description: description,
     };
 
@@ -45,16 +47,16 @@ const CreateEvent = () => {
       }
     );
     if (res.ok) {
-      return navigate("/dashboard/ongoing-requests");
+      return navigate("/");
     }
     const data = await res.json();
     setError(data);
   };
 
   return (
-    <section className="event">
-      <div className="text-3xl pb-3 border-b w-full">Create Event</div>
-      <form className="py-5  space-y-3 w-full" onSubmit={handleSubmitEvent}>
+    <section className="request-blood">
+      <div className="text-3xl pb-3 border-b w-full">Request Blood</div>
+      <form className="py-5  space-y-3 w-full" onSubmit={handleSubmitRequest}>
         <div className="form-control space-y-3">
           <label htmlFor="group">Blood Group</label>
           <select
@@ -71,6 +73,17 @@ const CreateEvent = () => {
           </select>
         </div>
         <div className="form-control space-y-3">
+          <label htmlFor="volume">Units</label>
+          <input
+            type="number"
+            id="units"
+            placeholder="Units"
+            className="w-full outline-none py-3 px-4 border border-black/20 bg-white rounded"
+            value={units}
+            onChange={(e) => setUnits(e.target.value)}
+          />
+        </div>
+        <div className="form-control space-y-3">
           <label htmlFor="location">Location</label>
           <input
             type="text"
@@ -81,26 +94,16 @@ const CreateEvent = () => {
             onChange={(e) => setLocation(e.target.value)}
           />
         </div>
+
         <div className="form-control space-y-3">
-          <label htmlFor="date">Date</label>
+          <label htmlFor="contact">Contact</label>
           <input
-            type="date"
-            id="date"
-            placeholder="Date"
+            type="text"
+            id="contact"
+            placeholder="Contact"
             className="w-full outline-none py-3 px-4 border border-black/20 bg-white rounded"
-            value={date}
-            onChange={(e) => setDate(e.target.value)}
-          />
-        </div>
-        <div className="form-control space-y-3">
-          <label htmlFor="volume">Volume</label>
-          <input
-            type="number"
-            id="volume"
-            placeholder="Volume"
-            className="w-full outline-none py-3 px-4 border border-black/20 bg-white rounded"
-            value={volume}
-            onChange={(e) => setVolume(e.target.value)}
+            value={contact}
+            onChange={(e) => setContact(e.target.value)}
           />
         </div>
         <div className="form-control space-y-3">
@@ -130,4 +133,4 @@ const CreateEvent = () => {
   );
 };
 
-export default CreateEvent;
+export default RequestBlood;

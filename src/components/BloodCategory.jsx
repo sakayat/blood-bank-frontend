@@ -44,7 +44,7 @@ const BloodCategory = () => {
       <div className="requests-list">
         <div className="container mx-auto px-4">
           <div className="blood-group py-5 space-y-5">
-            <div className="groups flex flex-wrap justify-center lg:justify-between gap-2 w-full rounded py-2">
+            <div className="groups flex flex-wrap justify-center lg:justify-between gap-8 w-full py-2">
               {bloodGroup.map((item) => (
                 <button
                   key={item.id}

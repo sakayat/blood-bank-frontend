@@ -99,16 +99,27 @@ const OngoingRequests = () => {
           <tbody>
             {requests.map((request) => (
               <tr className="bg-white border-b" key={request.id}>
-                <th scope="row" className="px-6 py-4 font-medium whitespace-nowrap">
+                <th
+                  scope="row"
+                  className="px-6 py-4 font-medium whitespace-nowrap"
+                >
                   {request.id}
                 </th>
                 <td className="px-6 py-4">{request.donor}</td>
                 <td className="px-6 py-4">{request.location}</td>
                 <td className="px-6 py-4">{request.date}</td>
                 <td className="px-6 py-4">{request.event_description}</td>
-                <td className="px-6 py-4">{request.status}</td>
+                <td
+                  className={`px-6 py-4 ${
+                    request.status === "pending"
+                      ? "text-yellow-400"
+                      : "text-green-600"
+                  }`}
+                >
+                  {request.status}
+                </td>
                 <td className="px-6 py-4">
-                  {request.status === "pending" ? (
+                  {request.status === "pending" && (
                     <div className="flex flex-wrap- gap-3">
                       <button
                         className="text-blue-400"
@@ -117,13 +128,16 @@ const OngoingRequests = () => {
                         Accept
                       </button>
                     </div>
-                  ) : (
-                    <button
-                      className="text-rose-400"
-                      onClick={() => handleCancelRequest(request.id)}
-                    >
-                      Cancel
-                    </button>
+                  )}
+                  {request.status === "accepted" && (
+                    <div className="flex flex-wrap- gap-3">
+                      <button
+                        className="text-blue-400"
+                        onClick={() => handleCancelRequest(request.id)}
+                      >
+                        Cancel
+                      </button>
+                    </div>
                   )}
                 </td>
               </tr>

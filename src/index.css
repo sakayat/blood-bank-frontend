@@ -28,8 +28,15 @@ h1 {
 
 .default-btn {
   background-color: var(--primary-color);
-  color: white;
+  color: #fff;
+
 }
+
+.secondary-btn {
+  background-color: var(--secondary-color);
+  color: #fff;
+}
+
 
 .hero-section {
   background: url("./assets/images/patient-donating-blood.jpg");

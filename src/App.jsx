@@ -6,15 +6,13 @@ import Login from "./components/Login";
 import Profile from "./components/Profile";
 import ProfileDetailsForm from "./components/ProfileDetailsForm";
 import UpdateProfileForm from "./components/UpdateProfileForm";
-import Dashboard from "./components/Dashboard";
-import CreateEvent from "./components/CreateEvent";
-import Layout from "./components/Layout";
+import DashboardLayout from "./components/DashboardLayout";
 import OngoingRequests from "./components/OngoingRequests";
 import DonationHistory from "./components/DonationHistory";
 import Footer from "./components/Footer";
 import ProtectedRoute from "./components/ProtectedRoute ";
+import RequestBloodForm from "./components/RequestBloodForm";
 const App = () => {
-  const token = localStorage.getItem("authToken");
   return (
     <div className="App flex flex-col h-screen">
       <Navbar />
@@ -51,11 +49,11 @@ const App = () => {
             path="dashboard/"
             element={
               <ProtectedRoute>
-                <Layout />
+                <DashboardLayout />
               </ProtectedRoute>
             }
           >
-            <Route path="create-event/" element={<CreateEvent />} />
+            <Route path="request-blood/" element={<RequestBloodForm />} />
             <Route path="ongoing-requests/" element={<OngoingRequests />} />
             <Route path="donation-history/" element={<DonationHistory />} />
           </Route>

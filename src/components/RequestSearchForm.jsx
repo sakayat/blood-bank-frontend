@@ -6,7 +6,7 @@ const RequestSearchForm = ({ setRequestData }) => {
   const handleSearch = async (e) => {
     e.preventDefault();
     const res = await fetch(
-      `http://127.0.0.1:8000/api/donors/blood-request-list/?search=${
+      `${import.meta.env.VITE_API_BASE_URL}/api/donors/blood-request-list/?search=${
         query ? query : ""
       }`
     );
@@ -15,20 +15,17 @@ const RequestSearchForm = ({ setRequestData }) => {
   };
 
   return (
-    <form onSubmit={handleSearch} className="flex items-center gap-3">
-      <input
-        type="search"
-        placeholder="Search..."
-        className="outline-none py-2.5 px-6 w-full border border-black rounded"
-        value={query}
-        onChange={(e) => setQuery(e.target.value)}
-      />
-      <button
-        type="submit"
-        className="default-btn py-2.5 px-5 rounded border text-md"
-      >
-        Search
-      </button>
+    <form onSubmit={handleSearch} className="flex items-center">
+      <div className="form-control space-y-3 w-full">
+        <input
+          type="search"
+          placeholder="Search..."
+          className="w-full outline-none py-3 px-4 bg-white border border-black"
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
+        />
+      </div>
+      <button className="default-btn py-3 px-6 border border-black">Submit</button>
     </form>
   );
 };
