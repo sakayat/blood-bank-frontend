@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const DonorListCard = ({ donor }) => {
   return (
-    <div className="list-card bg-white text-black shadow-2xl">
+    <div className="list-card flex flex-col justify-between bg-white text-black shadow-2xl">
       <div className="py-3 px-6 space-y-3">
         <div className="space-x-2">
           <span className="font-semibold">Name:</span>

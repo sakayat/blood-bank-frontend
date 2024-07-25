@@ -9,9 +9,11 @@ const DonorList = () => {
   useEffect(() => {
     fetchData();
   }, []);
-  
+
   const fetchData = async () => {
-    const res = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/donors/list/`);
+    const res = await fetch(
+      `${import.meta.env.VITE_API_BASE_URL}/api/donors/list/`
+    );
     const data = await res.json();
     setDonorList(data);
   };
@@ -29,6 +31,9 @@ const DonorList = () => {
         </div>
         <div className="donor-list py-8">
           <div className="container mx-auto px-4">
+            {donorList.length === 0 && (
+              <p className="text-center text-3xl">Donor Not Found</p>
+            )}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 py-5">
               {donorList.map((donor) => (
                 <DonorListCard key={donor.id} donor={donor} />
