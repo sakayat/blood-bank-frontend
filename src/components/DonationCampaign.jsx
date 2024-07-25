@@ -1,7 +1,7 @@
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { Calendar, Clock, Locate, LocateFixed } from "lucide-react";
+import { Calendar, Clock, LocateFixed } from "lucide-react";
 import { Link } from "react-router-dom";
 
 import img from "../assets/images/event_1.jpg";

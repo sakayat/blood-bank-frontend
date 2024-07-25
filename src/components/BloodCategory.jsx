@@ -24,9 +24,9 @@ const BloodCategory = () => {
 
   const fetchRequestData = async (group) => {
     const res = await fetch(
-      `${import.meta.env.VITE_API_BASE_URL}/api/donors/blood-request-list/?search=${
-        group ? group : ""
-      }`
+      `${
+        import.meta.env.VITE_API_BASE_URL
+      }/api/donors/blood-request-list/?search=${group ? group : ""}`
     );
     const data = await res.json();
     setRequestData(data);
@@ -39,10 +39,10 @@ const BloodCategory = () => {
   return (
     <section className="pt-10">
       <div className="py-5">
-        <h3 className="text-4xl text-center">Blood Type</h3>
+        <h3 className="text-6xl text-center">Blood Type</h3>
       </div>
       <div className="requests-list">
-        <div className="container mx-auto px-4">
+        <div className="max-w-7xl mx-auto px-4 py-14">
           <div className="blood-group py-5 space-y-5">
             <div className="groups flex flex-wrap justify-center lg:justify-between gap-8 w-full py-2">
               {bloodGroup.map((item) => (

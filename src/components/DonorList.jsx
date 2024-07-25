@@ -29,8 +29,8 @@ const DonorList = () => {
             "Donate Your Blood to Us, Save More Life Together"
           </h2>
         </div>
-        <div className="donor-list py-8">
-          <div className="container mx-auto px-4">
+        <div className="donor-list py-14">
+          <div className="max-w-7xl mx-auto px-4">
             {donorList.length === 0 && (
               <p className="text-center text-3xl">Donor Not Found</p>
             )}
