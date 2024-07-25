@@ -21,10 +21,6 @@ const Navbar = () => {
       localStorage.removeItem("authToken");
       return navigate("/login");
     }
-    const data = await res.json();
-
-    console.log(data);
-    console.log(res);
   };
 
   return (
@@ -33,7 +29,7 @@ const Navbar = () => {
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between h-20">
             <div className="logo">
-              <NavLink to="/">Humane Donor</NavLink>
+              <NavLink to="/">Safe Blood</NavLink>
             </div>
             <ul className="flex items-center gap-8" id="nav-links">
               {token ? (

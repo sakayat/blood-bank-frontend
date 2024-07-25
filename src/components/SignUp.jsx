@@ -20,20 +20,21 @@ const SignUp = () => {
       confirm_password: confirmPassword,
     };
 
-    const res = await fetch(`${import.meta.env.VITE_API_BASE_URL}/api/accounts/register/`, {
-      method: "post",
-      headers: {
-        "Content-type": "application/json",
-      },
-      body: JSON.stringify(userObj),
-    });
+    const res = await fetch(
+      `${import.meta.env.VITE_API_BASE_URL}/api/accounts/register/`,
+      {
+        method: "post",
+        headers: {
+          "Content-type": "application/json",
+        },
+        body: JSON.stringify(userObj),
+      }
+    );
 
     const data = await res.json();
-    console.log(data);
-    
 
     if (res.ok) {
-      return navigate(`/login/?${data}`);
+      return navigate(`/login/?${data?.message}`);
     }
     setError(data);
   };
@@ -97,7 +98,7 @@ const SignUp = () => {
                   onChange={(e) => setConfirmPassword(e.target.value)}
                 />
               </div>
-              <button className="default-btn py-3 w-full rounded">
+              <button className={`default-btn py-3 w-full rounded`}>
                 Submit
               </button>
               {error && (
