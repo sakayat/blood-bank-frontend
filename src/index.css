@@ -57,10 +57,10 @@ h1 {
   color: var(--secondary-color)
 }
 
-.donor-list{
+/* .donor-list{
   background-color: var(--primary-color);
   color: #fff;
-}
+} */
 
 .request-link{
   color: var(--secondary-color)

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const DonorListCard = ({ donor }) => {
   return (
-    <div className="list-card flex flex-col justify-between bg-white text-black shadow-2xl">
+    <div className="list-card flex flex-col justify-between bg-white text-black shadow-2xl border border-black">
       <div className="py-3 px-6 space-y-3">
         <div className="space-x-2">
           <span className="font-semibold">Name:</span>
@@ -24,12 +24,6 @@ const DonorListCard = ({ donor }) => {
           <span className=" text-black/60 text-sm">{donor.last_donation}</span>
         </div>
       </div>
-      <Link
-        to="dashboard/request-blood/"
-        className="secondary-btn hover:text-white py-3 text-center block"
-      >
-        Request
-      </Link>
     </div>
   );
 };

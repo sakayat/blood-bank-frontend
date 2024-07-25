@@ -16,7 +16,7 @@ const DonationCampaign = () => {
     initialSlide: 0,
   };
   return (
-    <section className="campaigns">
+    <section className="campaigns pt-10">
       <div className="max-w-7xl mx-auto px-4 py-8">
         <div className="grid grid-cols-12 gap-5">
           <div className="col-span-12 lg:col-span-5 py-5">

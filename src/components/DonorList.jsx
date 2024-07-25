@@ -20,25 +20,25 @@ const DonorList = () => {
 
   return (
     <section className="pt-10">
-      <div className="">
-        <div className="max-w-2xl mx-auto flex flex-col items-center py-5">
-          <span className="quote-icon">
-            <Quote size={45} />
-          </span>
-          <h2 className="text-4xl font-semi-bold text-center">
-            "Donate Your Blood to Us, Save More Life Together"
-          </h2>
-        </div>
-        <div className="donor-list py-14">
-          <div className="max-w-7xl mx-auto px-4">
-            {donorList.length === 0 && (
-              <p className="text-center text-3xl">Donor Not Found</p>
+      <div className="py-5">
+        <h3 className="text-6xl text-center">Donors</h3>
+      </div>
+      <div className="donor-list">
+        <div className="max-w-7xl mx-auto px-4">
+          {donorList.length === 0 && (
+            <p className="text-center text-3xl">Donor Not Found</p>
+          )}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 py-5">
+            {donorList.slice(0, 6).map((donor) => (
+              <DonorListCard key={donor.id} donor={donor} />
+            ))}
+          </div>
+          <div className="flex justify-center">
+            {donorList.length > 6 && (
+              <button className="default-btn py-3 px-6 w-full">
+                View all requests
+              </button>
             )}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 py-5">
-              {donorList.map((donor) => (
-                <DonorListCard key={donor.id} donor={donor} />
-              ))}
-            </div>
           </div>
         </div>
       </div>

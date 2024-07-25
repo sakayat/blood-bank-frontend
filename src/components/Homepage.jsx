@@ -7,8 +7,8 @@ import DonationCampaign from "./DonationCampaign";
 const Homepage = () => {
   return <div>
     <HeroSection />
-    <DonorList />
     <BloodCategory />
+    <DonorList />
     <DonationCampaign />
   </div>
 };
