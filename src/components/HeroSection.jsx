@@ -51,9 +51,9 @@ const HeroSection = () => {
                 <div className="overlay absolute w-full h-full"></div>
                 <img src={item.image} alt="" className="w-full h-[54rem]" />
                 <div className="max-w-7xl mx-auto px-4">
-                  <div className="absolute top-0 h-[54rem] flex flex-col gap-8 items-start justify-center">
+                  <div className="absolute top-0 h-[54rem] flex flex-col gap-8 items-center text-center lg:text-start lg:items-start justify-center">
                     <h1 className="text-2xl">{item.title}</h1>
-                    <p className="text-6xl w-1/2 leading-[4rem] font-bold">
+                    <p className="text-4xl lg:text-6xl w-full lg:w-1/2 lg:leading-[5rem] lg:font-bold">
                       {item.description}
                     </p>
                     <button className="default-btn py-3 px-6">
