@@ -62,7 +62,7 @@ const App = () => {
             <Route path="donation-history/" element={<DonationHistory />} />
             <Route path="update-request/:id" element={<UpdateOwnRequestForm />} />
           </Route>
-          <Route path="/requests-blood" element={<ViewBloodRequests />} />
+          <Route path="request-blood/" element={<ViewBloodRequests />} />
         </Routes>
       </main>
       <Footer />

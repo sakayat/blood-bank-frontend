@@ -40,9 +40,9 @@ const ViewBloodRequests = () => {
   };
 
   return (
-    <section className="pt-10">
+    <section className="pt-10 mt-20">
       <div className="py-5">
-        <h3 className="text-6xl text-center">All Blood Requests</h3>
+        <h3 className="text-6xl text-center">All Request Blood</h3>
       </div>
       <div className="requests-list">
         <div className="max-w-7xl mx-auto px-4 py-14">
@@ -59,7 +59,7 @@ const ViewBloodRequests = () => {
               ))}
             </div>
             <div className="search">
-              <RequestSearchForm setRequestData={setRequestData}/>
+              <RequestSearchForm setRequestData={setRequestData} />
             </div>
             <div className="request-list w-full">
               {requestData.length === 0 && (
