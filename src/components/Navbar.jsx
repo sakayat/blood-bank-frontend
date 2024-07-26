@@ -35,8 +35,8 @@ const Navbar = () => {
               {token ? (
                 <>
                   <li>
-                    <NavLink to="blood-list/" className="active">
-                      Blood List
+                    <NavLink to="request-blood/" className="active">
+                      Request Blood
                     </NavLink>
                   </li>
                   <li>
@@ -66,11 +66,6 @@ const Navbar = () => {
                   <li>
                     <NavLink to="request-blood/" className="active">
                       Request Blood
-                    </NavLink>
-                  </li>
-                  <li>
-                    <NavLink to="donors/" className="active">
-                      Donors
                     </NavLink>
                   </li>
                   <li>

@@ -3,7 +3,7 @@ import { Link, Outlet } from "react-router-dom";
 
 const DashboardLayout = () => {
   return (
-    <div className="pt-8">
+    <div className="pt-8 mt-20">
       <div className="container mx-auto px-4">
         <div className="lg:flex items-start gap-8 space-y-8 lg:space-y-0">
           <section className="sidebar">

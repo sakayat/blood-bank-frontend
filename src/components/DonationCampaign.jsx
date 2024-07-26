@@ -26,7 +26,7 @@ const DonationCampaign = () => {
               It has roots in a piece of classical Latin literature from 45 BC,
               making it over 2000 years old.
             </p>
-            <button className="default-btn py-3 px-6">All Campaigns</button>
+            <button className="default-btn py-3 px-6">Load All Campaigns</button>
           </div>
           <div className="col-span-12 lg:col-span-7">
             <div className="slider-container py-5">

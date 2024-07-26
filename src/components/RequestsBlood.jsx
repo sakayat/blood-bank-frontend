@@ -38,7 +38,7 @@ const RequestsBlood = () => {
             </div>
             <div className="flex justify-center">
               <button className="default-btn w-full py-3 px-6">
-                <Link to="/request-blood" className="hover:text-white">View all requests</Link>
+                <Link to="/request-blood" className="hover:text-white">Load all requests</Link>
               </button>
             </div>
           </div>
