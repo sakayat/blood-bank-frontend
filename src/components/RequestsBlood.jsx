@@ -21,7 +21,7 @@ const RequestsBlood = () => {
   return (
     <section className="pt-10">
       <div className="py-5">
-        <h3 className="text-6xl text-center">Request Blood</h3>
+        <h3 className="text-6xl text-center">Current Blood Request</h3>
       </div>
       <div className="requests-list">
         <div className="max-w-7xl mx-auto px-4 py-14">
@@ -38,7 +38,7 @@ const RequestsBlood = () => {
             </div>
             <div className="flex justify-center">
               <button className="default-btn w-full py-3 px-6">
-                <Link to="/request-blood" className="hover:text-white">Load all requests</Link>
+                <Link to="blood-request/" className="hover:text-white">Load All Requests</Link>
               </button>
             </div>
           </div>

@@ -35,8 +35,8 @@ const Navbar = () => {
               {token ? (
                 <>
                   <li>
-                    <NavLink to="request-blood/" className="active">
-                      Request Blood
+                    <NavLink to="blood-request/" className="active">
+                      Blood Request
                     </NavLink>
                   </li>
                   <li>
@@ -64,8 +64,8 @@ const Navbar = () => {
               ) : (
                 <ul className="flex gap-5">
                   <li>
-                    <NavLink to="request-blood/" className="active">
-                      Request Blood
+                    <NavLink to="blood-request/" className="active">
+                      Blood Request
                     </NavLink>
                   </li>
                   <li>
