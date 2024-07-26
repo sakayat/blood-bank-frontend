@@ -9,7 +9,7 @@ const DashboardLayout = () => {
           <section className="sidebar">
             <div className="w-full lg:w-64 border rounded space-y-2">
               <ul className="flex flex-col">
-                <Link to="request-blood/" className="py-3 px-4 border-b">
+                <Link to="create-request/" className="py-3 px-4 border-b">
                   Create Request
                 </Link>
                 <Link to="own-requests/" className="py-3 px-4 border-b">

@@ -1,13 +1,13 @@
 import React from "react";
 import HeroSection from "./HeroSection";
 import DonorList from "./DonorList";
-import BloodCategory from "./BloodCategory";
+import RequestsBlood from "./RequestsBlood";
 import DonationCampaign from "./DonationCampaign";
 
 const Homepage = () => {
   return <div>
     <HeroSection />
-    <BloodCategory />
+    <RequestsBlood />
     <DonorList />
     <DonationCampaign />
   </div>

@@ -4,7 +4,7 @@ import img from "../assets/images/empty.png";
 import RequestsCard from "./RequestsCard";
 import RequestSearchForm from "./RequestSearchForm";
 
-const BloodCategory = () => {
+const RequestsBlood = () => {
   const [requestData, setRequestData] = useState([]);
 
   useEffect(() => {
@@ -49,4 +49,4 @@ const BloodCategory = () => {
   );
 };
 
-export default BloodCategory;
+export default RequestsBlood;

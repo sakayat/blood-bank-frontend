@@ -25,7 +25,7 @@ const DonorListCard = ({ donor }) => {
         </div>
       </div>
       <Link
-        to="dashboard/request-blood/"
+        to="dashboard/create-request/"
         className="default-btn hover:text-white py-3 text-center block"
       >
         Request

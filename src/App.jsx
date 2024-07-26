@@ -55,7 +55,7 @@ const App = () => {
               </ProtectedRoute>
             }
           >
-            <Route path="request-blood/" element={<RequestBloodForm />} />
+            <Route path="create-request/" element={<RequestBloodForm />} />
             <Route path="own-requests/" element={<OwnRequests />} />
             <Route path="ongoing-requests/" element={<OngoingRequests />} />
             <Route path="donation-history/" element={<DonationHistory />} />
