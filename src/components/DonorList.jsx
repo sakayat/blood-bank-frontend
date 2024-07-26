@@ -20,25 +20,20 @@ const DonorList = () => {
 
   return (
     <section className="pt-10">
-      <div className="py-5">
-        <h3 className="text-6xl text-center">Donors</h3>
-      </div>
-      <div className="donor-list">
-        <div className="max-w-7xl mx-auto px-4">
-          {donorList.length === 0 && (
-            <p className="text-center text-3xl">Donor Not Found</p>
-          )}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 py-5">
-            {donorList.slice(0, 6).map((donor) => (
-              <DonorListCard key={donor.id} donor={donor} />
-            ))}
-          </div>
-          <div className="flex justify-center">
-            {donorList.length > 6 && (
-              <button className="default-btn py-3 px-6 w-full">
-                View all requests
-              </button>
+      <div className="">
+        <div className="py-5">
+          <h3 className="text-6xl text-center">Some of Donors</h3>
+        </div>
+        <div className="donor-list">
+          <div className="max-w-7xl mx-auto px-4">
+            {donorList.length === 0 && (
+              <p className="text-center text-3xl">Donor Not Found</p>
             )}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 py-5">
+              {donorList.slice(0, 6).map((donor) => (
+                <DonorListCard key={donor.id} donor={donor} />
+              ))}
+            </div>
           </div>
         </div>
       </div>

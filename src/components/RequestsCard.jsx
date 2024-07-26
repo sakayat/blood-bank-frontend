@@ -13,12 +13,22 @@ const RequestsCard = ({ item }) => {
         </span>
       </div>
       <div className="space-x-2">
+        <span>Total:</span>
+        <span className=" text-black/60 text-sm capitalize">
+          {item.units} {`${item.units > 9 ? "units" : "unit"}`}
+        </span>
+      </div>
+      <div className="space-x-2">
         <span>Location:</span>
-        <span className=" text-black/60 text-sm capitalize">{item.location}</span>
+        <span className=" text-black/60 text-sm capitalize">
+          {item.location}
+        </span>
       </div>
       <div className="space-x-2">
         <span>Contact:</span>
-        <span className=" text-black/60 text-sm capitalize">{item.contact}</span>
+        <span className=" text-black/60 text-sm capitalize">
+          {item.contact}
+        </span>
       </div>
       <div className="space-x-2">
         <span>status:</span>

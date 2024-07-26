@@ -24,6 +24,12 @@ const DonorListCard = ({ donor }) => {
           <span className=" text-black/60 text-sm">{donor.last_donation}</span>
         </div>
       </div>
+      <Link
+        to="dashboard/request-blood/"
+        className="default-btn hover:text-white py-3 text-center block"
+      >
+        Request
+      </Link>
     </div>
   );
 };

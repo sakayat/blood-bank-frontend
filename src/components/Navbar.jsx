@@ -59,6 +59,16 @@ const Navbar = () => {
               ) : (
                 <ul className="flex gap-5">
                   <li>
+                    <NavLink to="requests/" className="active">
+                      Bloods
+                    </NavLink>
+                  </li>
+                  <li>
+                    <NavLink to="donors/" className="active">
+                      Donors
+                    </NavLink>
+                  </li>
+                  <li>
                     <NavLink to="login/" className="active">
                       Login
                     </NavLink>
