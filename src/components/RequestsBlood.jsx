@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import img from "../assets/images/empty.png";
 import RequestsCard from "./RequestsCard";
-import RequestSearchForm from "./RequestSearchForm";
 
 const RequestsBlood = () => {
   const [requestData, setRequestData] = useState([]);
@@ -17,7 +16,7 @@ const RequestsBlood = () => {
     );
     const data = await res.json();
     setRequestData(data);
-  };
+  }; 
 
   return (
     <section className="pt-10">
