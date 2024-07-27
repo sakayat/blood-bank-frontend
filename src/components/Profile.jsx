@@ -37,44 +37,73 @@ const Profile = () => {
           <p className="text-rose-500">{profileInfo.error}</p>
           {profileInfo.error ? (
             <button className="default-btn py-3 px-6 rounded">
-              <Link to="details/" className="hover:text-white">Add Profile Details</Link>
-            </button>
-          ) :  <div className="profile-card border py-5 px-8 space-y-5">
-          <div className="space-x-2">
-            <span className="font-semibold">Name:</span>
-            <span className="text-black/60 text-md space-x-2">
-              <span>{profileInfo.first_name}</span>
-              <span>{profileInfo.last_name}</span>
-            </span>
-          </div>
-          <div className="space-x-2">
-            <span className="font-semibold">Age:</span>
-            <span className=" text-black/60 text-md">{profileInfo.age}</span>
-          </div>
-          <div className="space-x-2">
-            <span className="font-semibold">Address:</span>
-            <span className=" text-black/60 text-md">
-              {profileInfo.address}
-            </span>
-          </div>
-          <div className="space-x-2">
-            <span className="font-semibold">Last Donation:</span>
-            <span className=" text-black/60 text-md">
-              {profileInfo.last_donation}
-            </span>
-          </div>
-          {profileInfo && (
-            <button className="default-btn py-3 px-6 rounded hover:text-white">
-              <Link
-                to={`update/${profileInfo.id}/`}
-                className="hover:text-white"
-              >
-                Update Profile
+              <Link to="details/" className="hover:text-white">
+                Add Profile Details
               </Link>
             </button>
+          ) : (
+            <div className="profile-card border py-5 px-8 space-y-5">
+              <div className="space-x-2">
+                <span className="font-semibold">Name:</span>
+                <span className="text-black/60 text-md space-x-2">
+                  <span>{profileInfo.first_name}</span>
+                  <span>{profileInfo.last_name}</span>
+                </span>
+              </div>
+              <div className="space-x-2">
+                <span className="font-semibold">Blood Group:</span>
+                <span className=" text-black/60 text-md">
+                  {profileInfo.blood_group}
+                </span>
+              </div>
+              <div className="space-x-2">
+                <span className="font-semibold">Gender:</span>
+                <span className=" text-black/60 text-md">
+                  {profileInfo.gender}
+                </span>
+              </div>
+              <div className="space-x-2">
+                <span className="font-semibold">Religion:</span>
+                <span className=" text-black/60 text-md">
+                  {profileInfo.religion}
+                </span>
+              </div>
+              <div className="space-x-2">
+                <span className="font-semibold">Age:</span>
+                <span className=" text-black/60 text-md">
+                  {profileInfo.age}
+                </span>
+              </div>
+              <div className="space-x-2">
+                <span className="font-semibold">Profession:</span>
+                <span className=" text-black/60 text-md">
+                  {profileInfo.profession}
+                </span>
+              </div>
+              <div className="space-x-2">
+                <span className="font-semibold">Address:</span>
+                <span className=" text-black/60 text-md">
+                  {profileInfo.address}
+                </span>
+              </div>
+              <div className="space-x-2">
+                <span className="font-semibold">Last Donation:</span>
+                <span className=" text-black/60 text-md">
+                  {profileInfo.last_donation}
+                </span>
+              </div>
+              {profileInfo && (
+                <button className="default-btn py-3 px-6 rounded hover:text-white">
+                  <Link
+                    to={`update/${profileInfo.id}/`}
+                    className="hover:text-white"
+                  >
+                    Update Profile
+                  </Link>
+                </button>
+              )}
+            </div>
           )}
-        </div>}
-         
         </div>
       </div>
     </section>
