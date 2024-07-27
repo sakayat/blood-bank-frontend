@@ -20,7 +20,7 @@ const RequestSearchForm = ({ setRequestData }) => {
         <input
           type="search"
           placeholder="Search location..."
-          className="w-full outline-none py-3 px-4 bg-white border border-black"
+          className="w-full outline-none py-3 px-4 bg-white border"
           value={query}
           onChange={(e) => setQuery(e.target.value)}
         />

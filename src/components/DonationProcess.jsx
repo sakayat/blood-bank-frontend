@@ -39,9 +39,9 @@ const DonationProcess = () => {
           {processData.map((item) => (
             <div className="process-card space-y-3" key={item.id}>
               <div className="relative">
-                <img src={item.img} alt="" className="w-full h-64" />
-                <div className="donation-overly bg-rose-500 w-24 h-24 opacity-70 absolute bottom-0 right-0">
-                  <h4 className="text-3xl font-bold flex items-center justify-center relative text-white h-24">
+                <img src={item.img} alt="" className="w-full h-96 lg:h-64" />
+                <div className="donation-overly bg-rose-500 w-24 h-full lg:h-24 opacity-70 absolute bottom-0 right-0">
+                  <h4 className="text-3xl font-bold flex items-center justify-center relative text-white h-full lg:h-24">
                     {item.process}
                   </h4>
                 </div>

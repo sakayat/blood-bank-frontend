@@ -20,7 +20,7 @@ const DonationCampaign = () => {
       <div className="max-w-7xl mx-auto px-4 py-8">
         <div className="grid grid-cols-12 gap-5">
           <div className="col-span-12 lg:col-span-5 py-5">
-            <h3 className="text-6xl">Donation Campaigns</h3>
+            <h3 className="text-4xl uppercase font-bold text-black/75">Donation Campaigns</h3>
             <p className="py-5 text-gray-500 leading-7">
               Contrary to popular belief, Lorem Ipsum is not simply random text.
               It has roots in a piece of classical Latin literature from 45 BC,

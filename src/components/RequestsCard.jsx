@@ -4,7 +4,7 @@ const RequestsCard = ({ item }) => {
   return (
     <div
       key={item.id}
-      className="request-card bg-white border border-black space-y-3 py-3 px-6"
+      className="request-card bg-white border space-y-3 py-3 px-6"
     >
       <div className="space-x-2">
         <span>Blood Group:</span>

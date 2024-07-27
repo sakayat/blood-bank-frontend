@@ -21,7 +21,7 @@ const DonorList = () => {
   return (
     <section className="pt-10">
       <div className="py-5">
-        <h3 className="text-6xl text-center">Some of Donors</h3>
+        <h3 className="text-4xl text-center uppercase font-bold text-black/75">Some of Donors</h3>
       </div>
       <div className="donor-list">
         <div className="max-w-7xl mx-auto px-4">

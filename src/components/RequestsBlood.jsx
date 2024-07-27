@@ -21,7 +21,7 @@ const RequestsBlood = () => {
   return (
     <section className="pt-10">
       <div className="py-5">
-        <h3 className="text-6xl text-center">Current Blood Request</h3>
+        <h3 className="text-4xl text-center uppercase font-bold text-black/75">Current Blood Request</h3>
       </div>
       <div className="requests-list">
         <div className="max-w-7xl mx-auto px-4 py-14">
