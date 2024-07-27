@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import img from "../assets/images/empty.png";
+import headerImg from "../assets/images/section_title.jpg";
 import RequestsCard from "./RequestsCard";
 import RequestSearchForm from "./RequestSearchForm";
 
@@ -40,9 +41,15 @@ const ViewBloodRequests = () => {
   };
 
   return (
-    <section className="pt-10 mt-20">
-      <div className="py-5">
-        <h3 className="text-4xl text-center uppercase font-bold text-black/75">All Blood Request</h3>
+    <section className="pt-10 mt-10">
+      <div className="relative h-64">
+        <img src={headerImg} alt="" className="w-full object-cover h-64" />
+        <div className="h-64 flex items-center justify-center absolute top-0 w-full z-20">
+          <h3 className="text-4xl text-center uppercase font-bold text-white relative">
+            All Blood Request
+          </h3>
+        </div>
+        <div className="bg-black w-full h-full opacity-60 absolute top-0"></div>
       </div>
       <div className="requests-list">
         <div className="max-w-7xl mx-auto px-4 py-14">
