@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
 :root {
   font-family: Montserrat, sans-serif;
   line-height: 1.5;
@@ -18,7 +18,7 @@ a {
   text-decoration: inherit;
 }
 a:hover {
-  color: var(--primary-color)
+  color: var(--primary-color);
 }
 
 h1 {
@@ -35,8 +35,11 @@ h1 {
   color: #fff;
 }
 
-.icon-color{
+.icon-color {
   color: var(--primary-color);
+}
+.default-bg{
+  background-color: var(--primary-color);
 }
 
 .secondary-btn {
@@ -53,25 +56,30 @@ h1 {
   background-color: #ffffffe3;
 }
 
-.quote-icon{
-  color: var(--secondary-color)
+.quote-icon {
+  color: var(--secondary-color);
 }
 
-/* .donor-list{
-  background-color: var(--primary-color);
-  color: #fff;
-} */
-
-.request-link{
-  color: var(--secondary-color)
+.request-link {
+  color: var(--secondary-color);
 }
 
-.requests-list{
-  background-color: #F8F9FA;
+.requests-list {
+  background-color: #f8f9fa;
 }
 
+.donor-info li{
+  position: relative;
+}
 
-.footer{
+.donor-info li .caption::after {
+  position: absolute;
+  content: ":";
+  top: 0;
+  left: 12%;
+}
+
+.footer {
   background-color: var(--primary-color);
   color: #fff;
 }

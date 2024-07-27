@@ -15,6 +15,7 @@ import RequestBloodForm from "./components/RequestBloodForm";
 import OwnRequests from "./components/OwnRequests";
 import UpdateOwnRequestForm from "./components/UpdateOwnRequestForm";
 import ViewBloodRequests from "./components/ViewBloodRequests";
+import DonorDetails from "./components/DonorDetails";
 const App = () => {
   return (
     <div className="App flex flex-col h-screen">
@@ -63,6 +64,7 @@ const App = () => {
             <Route path="update-request/:id" element={<UpdateOwnRequestForm />} />
           </Route>
           <Route path="blood-request/" element={<ViewBloodRequests />} />
+          <Route path="donor/:id/" element={<DonorDetails />} />
         </Routes>
       </main>
       <Footer />

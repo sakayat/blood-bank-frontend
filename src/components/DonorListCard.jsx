@@ -25,10 +25,10 @@ const DonorListCard = ({ donor }) => {
         </div>
       </div>
       <Link
-        to="dashboard/create-request/"
+        to={`donor/${donor.id}/`}
         className="default-btn hover:text-white py-3 text-center block"
       >
-        Request
+        Details
       </Link>
     </div>
   );

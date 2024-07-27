@@ -32,13 +32,18 @@ const Navbar = () => {
               <NavLink to="/">Safe Blood</NavLink>
             </div>
             <ul className="flex items-center gap-8" id="nav-links">
+              <li>
+                <NavLink to="blood-request/" className="active">
+                  Blood Request
+                </NavLink>
+              </li>
+              <li>
+                <NavLink to="contact/" className="active">
+                  Contact
+                </NavLink>
+              </li>
               {token ? (
                 <>
-                  <li>
-                    <NavLink to="blood-request/" className="active">
-                      Blood Request
-                    </NavLink>
-                  </li>
                   <li>
                     <NavLink to="profile/" className="active">
                       Profile
@@ -63,11 +68,6 @@ const Navbar = () => {
                 </>
               ) : (
                 <ul className="flex gap-5">
-                  <li>
-                    <NavLink to="blood-request/" className="active">
-                      Blood Request
-                    </NavLink>
-                  </li>
                   <li>
                     <NavLink to="login/" className="active">
                       Login
