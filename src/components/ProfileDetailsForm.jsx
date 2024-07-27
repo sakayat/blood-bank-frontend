@@ -7,6 +7,7 @@ const ProfileDetailsForm = ({ user, id }) => {
   const navigate = useNavigate();
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
+  
   const [age, setAge] = useState("");
   const [address, setAddress] = useState("");
   const [lastDonation, setLastDonation] = useState("");
@@ -30,7 +31,6 @@ const ProfileDetailsForm = ({ user, id }) => {
     const userObj = {
       first_name: firstName,
       last_name: lastName,
-      age: age,
       address: address,
       last_donation: lastDonation,
       is_available: isAvailable,

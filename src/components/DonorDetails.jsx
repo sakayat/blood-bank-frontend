@@ -30,7 +30,21 @@ const DonorDetails = () => {
         </div>
         <div className="bg-black w-full h-full opacity-60 absolute top-0"></div>
       </div>
-      <div className="max-w-7xl mx-auto px-4">
+      <div className="max-w-7xl mx-auto">
+        <div className="flex items-center h-24 bg-black/90 text-white px-6 mt-10">
+          <div className="w-[48rem] mx-auto">
+            <div className="flex justify-between w-full">
+              <div className="space-x-3">
+                <span>Blood Group:</span>
+                <span className="w-5 h-5 bg-rose-600 rounded-full p-2">{userData?.blood_group}</span>
+              </div>
+              <div className="space-x-3">
+                <span>Last Donation:</span>
+                <span>{userData?.last_donation}</span>
+              </div>
+            </div>
+          </div>
+        </div>
         <div className="flex gap-5 py-5">
           <div className="w-full py-3 px-6 border">
             <ul className="donor-info space-y-7">
@@ -66,10 +80,6 @@ const DonorDetails = () => {
               <li className="flex">
                 <span className="w-44 font-semibold caption">Address</span>
                 <span>{userData?.address}</span>
-              </li>
-              <li className="flex">
-                <span className="w-44 font-semibold caption">Last Donation:</span>
-                <span>{userData?.last_donation}</span>
               </li>
             </ul>
           </div>
