@@ -30,7 +30,7 @@ const DonorDetails = () => {
         </div>
         <div className="bg-black w-full h-full opacity-60 absolute top-0"></div>
       </div>
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-7xl mx-auto px-4">
         <div className="flex items-center h-24 bg-black/90 text-white px-6 mt-10">
           <div className="w-[48rem] mx-auto">
             <div className="flex justify-between w-full">
@@ -58,12 +58,6 @@ const DonorDetails = () => {
               <li className="flex">
                 <span className="w-44 font-semibold caption">Gender</span>
                 <span>{userData?.gender}</span>
-              </li>
-              <li className="flex">
-                <span className="w-44 font-semibold caption">
-                  Date of Birth
-                </span>
-                <span>{userData?.date_of_birth}</span>
               </li>
               <li className="flex">
                 <span className="w-44 font-semibold caption">Religion</span>

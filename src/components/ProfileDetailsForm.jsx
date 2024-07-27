@@ -54,7 +54,7 @@ const ProfileDetailsForm = ({ user, id }) => {
     const userObj = {
       first_name: firstName,
       last_name: lastName,
-      blood_group: bloodGroup,
+      blood_group: group,
       gender: gender,
       religion: religion,
       address: address,
@@ -64,6 +64,7 @@ const ProfileDetailsForm = ({ user, id }) => {
       is_available: isAvailable,
     };
 
+    console.log(userObj);
     if (user) {
       const res = await fetch(
         `${import.meta.env.VITE_API_BASE_URL}/api/donors/update-profile/${id}/`,
