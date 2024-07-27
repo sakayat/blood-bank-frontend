@@ -31,7 +31,7 @@ const Navbar = () => {
             <div className="logo">
               <NavLink to="/">Safe Blood</NavLink>
             </div>
-            <ul className="flex items-center gap-8" id="nav-links">
+            <ul className="flex items-center gap-8 uppercase text-sm" id="nav-links">
               <li>
                 <NavLink to="blood-request/" className="active">
                   Blood Request
@@ -59,7 +59,7 @@ const Navbar = () => {
                   </li>
                   <li>
                     <button
-                      className="py-3 px-4 default-btn rounded"
+                      className="py-3 px-4 default-btn rounded uppercase text-sm"
                       onClick={handleLogOut}
                     >
                       Logout
