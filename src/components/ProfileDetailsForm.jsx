@@ -5,13 +5,32 @@ import img from "../assets/images//add_information.png";
 const ProfileDetailsForm = ({ user, id }) => {
   const token = localStorage.getItem("authToken");
   const navigate = useNavigate();
+
+  const bloodGroup = [
+    { id: 1, value: "A+" },
+    { id: 2, value: "A-" },
+    { id: 3, value: "B+" },
+    { id: 4, value: "B-" },
+    { id: 5, value: "AB+" },
+    { id: 6, value: "AB-" },
+    { id: 7, value: "O+" },
+    { id: 8, value: "O+" },
+  ];
+
+  const genders = [
+    { id: 1, value: "Male" },
+    { id: 2, value: "Female" },
+  ];
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
-  
-  const [age, setAge] = useState("");
+  const [group, setGroup] = useState("");
+  const [gender, setGender] = useState("");
+  const [religion, setReligion] = useState("");
+  const [age, setAge] = useState(18);
+  const [profession, setProfession] = useState("");
   const [address, setAddress] = useState("");
   const [lastDonation, setLastDonation] = useState("");
-  const [isAvailable, setIsAvailable] = useState(true);
+  const [isAvailable, setIsAvailable] = useState(false);
 
   const [error, setError] = useState("");
 
@@ -19,7 +38,11 @@ const ProfileDetailsForm = ({ user, id }) => {
     if (user) {
       setFirstName(user.first_name);
       setLastName(user.last_name);
+      setGroup(user.blood_group);
+      setGender(user.gender);
+      setReligion(user.religion);
       setAge(user.age);
+      setProfession(user.profession);
       setAddress(user.address);
       setLastDonation(user.last_donation);
       setIsAvailable(user.is_available);
@@ -31,7 +54,12 @@ const ProfileDetailsForm = ({ user, id }) => {
     const userObj = {
       first_name: firstName,
       last_name: lastName,
+      blood_group: bloodGroup,
+      gender: gender,
+      religion: religion,
       address: address,
+      age: age,
+      profession: profession,
       last_donation: lastDonation,
       is_available: isAvailable,
     };
@@ -111,6 +139,49 @@ const ProfileDetailsForm = ({ user, id }) => {
               />
             </div>
             <div className="form-control space-y-3">
+              <label htmlFor="group">Blood Group</label>
+              <select
+                id="group"
+                className="w-full outline-none border border-black/20 py-3 px-4"
+                value={group}
+                onChange={(e) => setGroup(e.target.value)}
+              >
+                <option value="">Select Group</option>
+                {bloodGroup.map((group) => (
+                  <option value={group.value} key={group.id}>
+                    {group.value}
+                  </option>
+                ))}
+              </select>
+            </div>
+            <div className="form-control space-y-3">
+              <label htmlFor="gender">Select Gender</label>
+              <select
+                id="gender"
+                className="w-full outline-none border border-black/20 py-3 px-4"
+                value={gender}
+                onChange={(e) => setGender(e.target.value)}
+              >
+                <option value="">Select Group</option>
+                {genders.map((group) => (
+                  <option value={group.value} key={group.id}>
+                    {group.value}
+                  </option>
+                ))}
+              </select>
+            </div>
+            <div className="form-control space-y-3">
+              <label htmlFor="religion">Religion</label>
+              <input
+                type="text"
+                id="religion"
+                placeholder="Religion"
+                className="w-full outline-none py-3 px-4 border border-black/20 bg-white rounded"
+                value={religion}
+                onChange={(e) => setReligion(e.target.value)}
+              />
+            </div>
+            <div className="form-control space-y-3">
               <label htmlFor="age">Age</label>
               <input
                 type="number"
@@ -119,6 +190,17 @@ const ProfileDetailsForm = ({ user, id }) => {
                 className="w-full outline-none py-3 px-4 border border-black/20 bg-white rounded"
                 value={age}
                 onChange={(e) => setAge(e.target.value)}
+              />
+            </div>
+            <div className="form-control space-y-3">
+              <label htmlFor="age">Profession</label>
+              <input
+                type="text"
+                id="profession"
+                placeholder="Profession"
+                className="w-full outline-none py-3 px-4 border border-black/20 bg-white rounded"
+                value={profession}
+                onChange={(e) => setProfession(e.target.value)}
               />
             </div>
             <div className="form-control space-y-3">

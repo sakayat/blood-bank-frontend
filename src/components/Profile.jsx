@@ -26,7 +26,7 @@ const Profile = () => {
   };
 
   return (
-    <section className="py-10">
+    <section className="py-10 mt-10">
       <div className="container mx-auto px-4">
         <div className="py-5">
           <h2 className="text-4xl font-semibold text-center">
