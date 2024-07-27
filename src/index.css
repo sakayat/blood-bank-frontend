@@ -38,6 +38,9 @@ h1 {
 .icon-color {
   color: var(--primary-color);
 }
+.icon-bg{
+  background-color: var(--primary-color);
+}
 .default-bg{
   background-color: var(--primary-color);
 }

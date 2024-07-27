@@ -42,6 +42,11 @@ const Navbar = () => {
                   Contact
                 </NavLink>
               </li>
+              <li>
+                <NavLink to="about/" className="active">
+                  About Us
+                </NavLink>
+              </li>
               {token ? (
                 <>
                   <li>
@@ -59,7 +64,7 @@ const Navbar = () => {
                   </li>
                   <li>
                     <button
-                      className="py-3 px-4 default-btn rounded uppercase text-sm"
+                      className="py-3 px-4 default-btn uppercase text-sm"
                       onClick={handleLogOut}
                     >
                       Logout
