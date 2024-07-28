@@ -17,11 +17,11 @@ const DonorListCard = ({ donor }) => {
         </div>
         <div className="space-x-2">
           <span>Address:</span>
-          <span className="font-semibold">{donor.address}</span>
+          <span className="font-semibold text-sm">{donor.address}</span>
         </div>
         <div className="space-x-2">
           <span>Last Donation:</span>
-          <span className="font-semibold">{donor.last_donation}</span>
+          <span className="font-semibold text-sm">{donor.last_donation}</span>
         </div>
       </div>
       <Link

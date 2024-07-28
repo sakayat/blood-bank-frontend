@@ -110,9 +110,9 @@ const OngoingRequests = () => {
                 <td className="px-6 py-4">{request.date}</td>
                 <td className="px-6 py-4">{request.event_description}</td>
                 <td
-                  className={`px-6 py-4 ${
+                  className={`px-6 py-4 font-bold capitalize ${
                     request.status === "pending"
-                      ? "text-yellow-400"
+                      ? "text-yellow-600"
                       : "text-green-600"
                   }`}
                 >

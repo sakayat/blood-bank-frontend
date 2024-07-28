@@ -56,7 +56,7 @@ const DonationHistory = () => {
                 <td className="px-6 py-4">{donation.donor}</td>
                 <td className="px-6 py-4">{donation.recipient}</td>
                 <td
-                  className={`px-6 py-4 ${
+                  className={`px-6 py-4 font-bold capitalize ${
                     donation.status === "accepted"
                       ? "text-green-500"
                       : "text-rose-500"
