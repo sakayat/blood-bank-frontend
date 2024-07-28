@@ -1,5 +1,6 @@
 import React from "react";
 import { NavLink, useNavigate } from "react-router-dom";
+import logo from "../assets/images/logo.svg"
 
 const Navbar = () => {
   const token = localStorage.getItem("authToken");
@@ -29,7 +30,9 @@ const Navbar = () => {
         <div className="max-w-7xl mx-auto px-4">
           <div className="flex items-center justify-between h-20">
             <div className="logo">
-              <NavLink to="/">Safe Blood</NavLink>
+              <NavLink to="/">
+              <img src={logo} alt="" className="w-full h-full"/>
+              </NavLink>
             </div>
             <ul className="flex items-center gap-8 uppercase text-sm" id="nav-links">
               <li>

@@ -20,13 +20,17 @@ const DonationCampaign = () => {
       <div className="max-w-7xl mx-auto px-4 py-8">
         <div className="grid grid-cols-12 gap-5">
           <div className="col-span-12 lg:col-span-5 py-5">
-            <h3 className="text-4xl uppercase font-bold text-black/75">Donation Campaigns</h3>
+            <h3 className="text-4xl uppercase font-bold text-black/75">
+              Donation Campaigns
+            </h3>
             <p className="py-5 text-gray-500 leading-7">
               Contrary to popular belief, Lorem Ipsum is not simply random text.
               It has roots in a piece of classical Latin literature from 45 BC,
               making it over 2000 years old.
             </p>
-            <button className="default-btn py-3 px-6">Load All Campaigns</button>
+            <button className="default-btn py-3 px-6">
+              <Link to="campaigns/" className="hover:text-white">Load All Campaigns</Link>
+            </button>
           </div>
           <div className="col-span-12 lg:col-span-7">
             <div className="slider-container py-5">
@@ -44,7 +48,7 @@ const DonationCampaign = () => {
                         <span className="text-sm">December 7</span>
                       </div>
                       <h4 className="text-4xl">
-                        <Link to="http://">World Blood Donors Day</Link>
+                        World Blood Donors Day
                       </h4>
                       <p className="text-gray-500 leading-7">
                         Contrary to popular belief, Lorem Ipsum is not simply
