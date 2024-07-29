@@ -24,7 +24,7 @@ const OngoingRequests = () => {
       }
     );
     const data = await res.json();
-    setRequests(data);
+    setRequests(data.results);
   };
 
   const handleAcceptRequest = async (id) => {
@@ -83,9 +83,6 @@ const OngoingRequests = () => {
                 Location
               </th>
               <th scope="col" className="px-6 py-3">
-                Date
-              </th>
-              <th scope="col" className="px-6 py-3">
                 Event
               </th>
               <th scope="col" className="px-6 py-3">
@@ -107,7 +104,6 @@ const OngoingRequests = () => {
                 </th>
                 <td className="px-6 py-4">{request.donor}</td>
                 <td className="px-6 py-4">{request.location}</td>
-                <td className="px-6 py-4">{request.date}</td>
                 <td className="px-6 py-4">{request.event_description}</td>
                 <td
                   className={`px-6 py-4 font-bold capitalize ${

@@ -24,7 +24,8 @@ const OwnRequests = () => {
       }
     );
     const data = await res.json();
-    setRequests(data);
+    console.log(data);
+    setRequests(data.results);
   };
 
   const handleDeleteRequest = async (id) => {
