@@ -11,7 +11,7 @@ const RequestSearchForm = ({ setRequestData }) => {
       }/api/donors/blood-request-list/?search=${query}`
     );
     const data = await res.json();
-    setRequestData(data);
+    setRequestData(data.results);
   };
 
   return (
