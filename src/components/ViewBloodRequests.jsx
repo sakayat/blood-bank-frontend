@@ -3,6 +3,7 @@ import img from "../assets/images/empty.png";
 import headerImg from "../assets/images/section_title.jpg";
 import RequestsCard from "./RequestsCard";
 import RequestSearchForm from "./RequestSearchForm";
+import { Link } from "react-router-dom";
 
 const ViewBloodRequests = () => {
   const bloodGroup = [
@@ -18,16 +19,27 @@ const ViewBloodRequests = () => {
 
   const [requestData, setRequestData] = useState([]);
 
+  const [pagination, setPagination] = useState({});
+
+  const [currentPage, setCurrentPage] = useState(1);
+
   useEffect(() => {
     fetchRequestData();
-  }, []);
+  }, [currentPage]);
 
   const fetchRequestData = async () => {
     const res = await fetch(
-      `${import.meta.env.VITE_API_BASE_URL}/api/donors/blood-request-list/`
+      `${
+        import.meta.env.VITE_API_BASE_URL
+      }/api/donors/blood-request-list/?page=${currentPage}`
     );
     const data = await res.json();
-    setRequestData(data);
+    setRequestData(data.results);
+    setPagination({
+      count: data.count,
+      next: data.next,
+      prev: data.previous,
+    });
   };
 
   const handleBloodTypes = async (group) => {
@@ -39,6 +51,27 @@ const ViewBloodRequests = () => {
     const data = await res.json();
     setRequestData(data);
   };
+
+  const nextPage = () => {
+    if (pagination.next) {
+      setCurrentPage((currPage) => currPage + 1);
+    }
+  };
+
+  const previousPage = () => {
+    if (pagination.prev) {
+      setCurrentPage((currPage) => currPage - 1);
+    }
+  };
+
+  const totalPages = Math.ceil(pagination.count / 6);
+  const pageNumbers = [];
+
+  for (let i = 1; i <= totalPages; i++) {
+    pageNumbers.push(i);
+  }
+
+  console.log(pageNumbers);
 
   return (
     <section className="pt-10 mt-10">
@@ -78,6 +111,34 @@ const ViewBloodRequests = () => {
                 ))}
               </div>
             </div>
+          </div>
+          <div className="pagination flex gap-5 border py-2 px-4">
+            <button
+              className={`prev ${!pagination.prev ? "text-gray-400" : ""}`}
+              onClick={previousPage}
+              disabled={!pagination.prev}
+            >
+              Previous
+            </button>
+            {pageNumbers.map((page, i) => (
+              <div className="" key={i}>
+                <button
+                  onClick={() => setCurrentPage(page)}
+                  className={`${
+                    currentPage === page ? "default-color font-bold" : ""
+                  }`}
+                >
+                  {page}
+                </button>
+              </div>
+            ))}
+            <button
+              className={`next ${!pagination.next ? "text-gray-400" : ""}`}
+              onClick={nextPage}
+              disabled={!pagination.next}
+            >
+              Next
+            </button>
           </div>
         </div>
       </div>

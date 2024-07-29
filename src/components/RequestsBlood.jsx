@@ -15,7 +15,7 @@ const RequestsBlood = () => {
       `${import.meta.env.VITE_API_BASE_URL}/api/donors/blood-request-list/`
     );
     const data = await res.json();
-    setRequestData(data);
+    setRequestData(data.results);
   }; 
 
   return (
