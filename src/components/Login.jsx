@@ -35,10 +35,9 @@ const Login = () => {
   const decodeMsg = decodeURIComponent(url)
   
   return (
-    <section className="login">
+    <section className="login pt-10 mt-20">
       <div className="container mx-auto px-4">
-        <div className="lg:h-[calc(100vh-6rem)] flex items-center">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 place-items-center">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 place-items-center">
             <div className="lg:order-last">
               <img src={img} alt="" className="w-full h-full" />
             </div>
@@ -83,7 +82,6 @@ const Login = () => {
 
             </form>
           </div>
-        </div>
       </div>
     </section>
   );
