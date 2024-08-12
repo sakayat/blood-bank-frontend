@@ -14,7 +14,6 @@ const Footer = () => {
             </NavLink>
             <div className="grid grid-cols-12 gap-10 lg:gap-5 mb-10">
               <div className="col-span-12 lg:col-span-5 space-y-5">
-                <h3 className="text-2xl">About Us</h3>
                 <p>
                   We are world largest and trustful blood donation center. We
                   are working all over the world, organizing blood donation
