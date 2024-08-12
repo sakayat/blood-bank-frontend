@@ -102,7 +102,7 @@ const Profile = () => {
                 </span>
               </div>
               {profileInfo && (
-                <button className="default-btn py-3 px-6  hover:text-white">
+                <button className="default-btn w-full py-3 px-6  hover:text-white">
                   <Link
                     to={`update/${profileInfo.id}/`}
                     className="hover:text-white"
