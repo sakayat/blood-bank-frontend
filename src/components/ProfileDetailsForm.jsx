@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import img from "../assets/images//add_information.png";
+import { data } from "autoprefixer";
 
 const ProfileDetailsForm = ({ user, id }) => {
   const token = localStorage.getItem("authToken");
@@ -21,6 +22,7 @@ const ProfileDetailsForm = ({ user, id }) => {
     { id: 1, value: "Male" },
     { id: 2, value: "Female" },
   ];
+
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [group, setGroup] = useState("");
@@ -31,8 +33,14 @@ const ProfileDetailsForm = ({ user, id }) => {
   const [address, setAddress] = useState("");
   const [lastDonation, setLastDonation] = useState("");
   const [isAvailable, setIsAvailable] = useState(false);
+  const [profileImage, setProfileImage] = useState(null);
 
   const [error, setError] = useState("");
+
+  const handleImageUpload = (e) => {
+    const file = e.target.files[0];
+    setProfileImage(file);
+  };
 
   useEffect(() => {
     if (user) {
@@ -46,37 +54,40 @@ const ProfileDetailsForm = ({ user, id }) => {
       setAddress(user.address);
       setLastDonation(user.last_donation);
       setIsAvailable(user.is_available);
+      setProfileImage(user.profile_image);
     }
   }, [user]);
 
   const handleOnProfile = async (e) => {
     e.preventDefault();
-    const userObj = {
-      first_name: firstName,
-      last_name: lastName,
-      blood_group: group,
-      gender: gender,
-      religion: religion,
-      address: address,
-      age: age,
-      profession: profession,
-      last_donation: lastDonation,
-      is_available: isAvailable,
-    };
 
-    console.log(userObj);
+    const formData = new FormData();
+
+    formData.append("first_name", firstName);
+    formData.append("last_name", lastName);
+    formData.append("blood_group", group);
+    formData.append("gender", gender);
+    formData.append("religion", religion);
+    formData.append("address", address);
+    formData.append("age", age);
+    formData.append("profession", profession);
+    formData.append("last_donation", lastDonation);
+    formData.append("is_available", isAvailable);
+    formData.append("profile_image", profileImage);
+    
+
     if (user) {
       const res = await fetch(
         `${import.meta.env.VITE_API_BASE_URL}/api/donors/update-profile/${id}/`,
         {
           method: "put",
           headers: {
-            "Content-type": "application/json",
             Authorization: `Token ${token}`,
           },
-          body: JSON.stringify(userObj),
+          body: formData,
         }
       );
+
       if (res.ok) {
         return navigate("/profile/");
       }
@@ -86,10 +97,9 @@ const ProfileDetailsForm = ({ user, id }) => {
         {
           method: "post",
           headers: {
-            "Content-type": "application/json",
             Authorization: `Token ${token}`,
           },
-          body: JSON.stringify(userObj),
+          body: formData,
         }
       );
 
@@ -104,7 +114,7 @@ const ProfileDetailsForm = ({ user, id }) => {
   };
 
   return (
-    <section className="pt-10">
+    <section className="pt-10 mt-10">
       <div className="container mx-auto">
         <div className="py-5">
           <h2 className="text-2xl font-semibold text-center">
@@ -117,6 +127,15 @@ const ProfileDetailsForm = ({ user, id }) => {
             className="py-5 px-8 space-y-3 w-full"
             onSubmit={handleOnProfile}
           >
+            <div className="form-control space-y-3">
+              <label htmlFor="profile_image">Profile Image</label>
+              <input
+                type="file"
+                accept="image/*"
+                className="w-full outline-none py-3 px-4 border border-black/20 bg-white rounded"
+                onChange={handleImageUpload}
+              />
+            </div>
             <div className="form-control space-y-3">
               <label htmlFor="first_name">First Name</label>
               <input

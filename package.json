@@ -1,7 +1,7 @@
 {
-  "name": "ur_blood",
+  "name": "safe_blood",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
