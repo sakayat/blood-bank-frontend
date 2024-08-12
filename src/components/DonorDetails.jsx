@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import headerImg from "../assets/images/section_title.jpg";
+import profileImg from "../assets/images/profile_pic.png";
 import { useParams } from "react-router-dom";
 
 const DonorDetails = () => {
@@ -32,11 +33,22 @@ const DonorDetails = () => {
       </div>
       <div className="max-w-7xl mx-auto px-4">
         <div className="flex items-center h-24 bg-black/90 text-white px-6 mt-10">
+          <div className="flex justify-center">
+            <img
+              src={userData?.profile_image ? `${import.meta.env.VITE_API_BASE_URL}/${
+                userData?.profile_image
+              }` : profileImg}
+              alt=""
+              className="w-36 h-36 rounded-full p-1"
+            />
+          </div>
           <div className="w-[48rem] mx-auto">
             <div className="flex justify-between w-full">
               <div className="space-x-3">
                 <span>Blood Group:</span>
-                <span className="w-5 h-5 bg-rose-600 rounded-full p-2">{userData?.blood_group}</span>
+                <span className="w-5 h-5 bg-rose-600 rounded-full p-2">
+                  {userData?.blood_group}
+                </span>
               </div>
               <div className="space-x-3">
                 <span>Last Donation:</span>
