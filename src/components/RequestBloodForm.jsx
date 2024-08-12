@@ -77,7 +77,6 @@ const RequestBloodForm = ({ bloodRequest, id }) => {
       }
       const data = await res.json();
       setError(data);
-      console.log(data);
     }
   };
 
@@ -158,7 +157,7 @@ const RequestBloodForm = ({ bloodRequest, id }) => {
               error.event_description}
           </p>
         )}
-        <button className="default-btn py-3 w-full rounded">Submit</button>
+        <button className="default-btn py-3 w-full">Submit</button>
       </form>
     </section>
   );
