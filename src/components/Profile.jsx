@@ -43,6 +43,15 @@ const Profile = () => {
             </button>
           ) : (
             <div className="profile-card border py-5 px-8 space-y-5">
+              <div className="flex justify-center">
+                <img
+                  src={`${import.meta.env.VITE_API_BASE_URL}/${
+                    profileInfo.profile_image
+                  }`}
+                  alt=""
+                  className="w-36 h-36 rounded-full border-2 border-[#fe3c47] p-1"
+                />
+              </div>
               <div className="space-x-2">
                 <span className="font-semibold">Name:</span>
                 <span className="text-black/60 text-md space-x-2">
@@ -93,7 +102,7 @@ const Profile = () => {
                 </span>
               </div>
               {profileInfo && (
-                <button className="default-btn py-3 px-6 rounded hover:text-white">
+                <button className="default-btn py-3 px-6  hover:text-white">
                   <Link
                     to={`update/${profileInfo.id}/`}
                     className="hover:text-white"
