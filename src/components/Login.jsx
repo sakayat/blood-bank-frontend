@@ -81,7 +81,7 @@ const Login = () => {
             <button className="default-btn py-3 w-full">Submit</button>
             {error && (
               <p className="py-3 text-rose-500">
-                {error || error.username || error.password}
+                {error}
               </p>
             )}
           </form>
