@@ -9,9 +9,6 @@ const Login = () => {
 
   const [error, setError] = useState("");
 
-  console.log(error);
-  
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     const userObj = {
