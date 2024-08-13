@@ -8,7 +8,7 @@ const Login = () => {
   const [password, setPassword] = useState("");
 
   const [error, setError] = useState("");
-
+  
   const handleSubmit = async (e) => {
     e.preventDefault();
     const userObj = {
@@ -35,7 +35,7 @@ const Login = () => {
       }
       setError(data);
     } catch (error) {
-      setError("Server is not connected");
+      setError({error: "Server is not connected"});
     }
   };
   const url = window.location.search.replace("?", "");
@@ -81,7 +81,7 @@ const Login = () => {
             <button className="default-btn py-3 w-full">Submit</button>
             {error && (
               <p className="py-3 text-rose-500">
-                {error}
+                {error.error || error.username || error.password}
               </p>
             )}
           </form>
