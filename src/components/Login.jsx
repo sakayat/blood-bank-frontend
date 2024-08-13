@@ -15,24 +15,28 @@ const Login = () => {
       username: username,
       password: password,
     };
-    const res = await fetch(
-      `${import.meta.env.VITE_API_BASE_URL}/api/accounts/login/`,
-      {
-        method: "post",
-        headers: {
-          "Content-type": "application/json",
-        },
-        body: JSON.stringify(userObj),
+    try {
+      const res = await fetch(
+        `${import.meta.env.VITE_API_BASE_URL}/api/accounts/login/`,
+        {
+          method: "post",
+          headers: {
+            "Content-type": "application/json",
+          },
+          body: JSON.stringify(userObj),
+        }
+      );
+
+      const data = await res.json();
+
+      if (res.ok) {
+        localStorage.setItem("authToken", data.token);
+        return navigate("/");
       }
-    );
-
-    const data = await res.json();
-
-    if (res.ok) {
-      localStorage.setItem("authToken", data.token);
-      return navigate("/");
+      setError(data);
+    } catch (error) {
+      setError("Server is not connected");
     }
-    setError(data);
   };
   const url = window.location.search.replace("?", "");
   const decodeMsg = decodeURIComponent(url);
@@ -73,10 +77,10 @@ const Login = () => {
                 onChange={(e) => setPassword(e.target.value)}
               />
             </div>
-            <button className="default-btn py-3 w-full rounded">Submit</button>
+            <button className="default-btn py-3 w-full">Submit</button>
             {error && (
               <p className="py-3 text-rose-500">
-                {error.error ? error.error : error.username}
+                {error.error || error ? error.error || error : error.username}
               </p>
             )}
           </form>

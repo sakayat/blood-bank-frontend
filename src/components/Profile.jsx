@@ -45,7 +45,7 @@ const Profile = () => {
             <div className="profile-card border py-5 px-8 space-y-5">
               <div className="flex justify-center">
                 <img
-                  src={`${import.meta.env.VITE_API_BASE_URL}/${
+                  src={`${import.meta.env.VITE_API_BASE_URL}${
                     profileInfo.profile_image
                   }`}
                   alt=""

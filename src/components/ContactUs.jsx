@@ -12,11 +12,11 @@ const ContactUs = () => {
     e.preventDefault();
 
     const res = await emailjs.sendForm(
-      "service_s1u5wm3",
-      "template_5rf2qb8",
+      import.meta.env.VITE_EMAIL_JS_SERVICE_ID,
+      import.meta.env.VITE_EMAIL_JS_TEMPLATE_ID,
       form.current,
       {
-        publicKey: "U4HUSy-SQ03bRZ9Za",
+        publicKey: import.meta.env.VITE_EMAIL_JS_PUBLIC_KEY,
       }
     );
 

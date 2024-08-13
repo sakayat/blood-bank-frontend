@@ -19,31 +19,36 @@ const SignUp = () => {
       password: password,
       confirm_password: confirmPassword,
     };
+    try {
+      const res = await fetch(
+        `${import.meta.env.VITE_API_BASE_URL}/api/accounts/register/`,
+        {
+          method: "post",
+          headers: {
+            "Content-type": "application/json",
+          },
+          body: JSON.stringify(userObj),
+        }
+      );
 
-    const res = await fetch(
-      `${import.meta.env.VITE_API_BASE_URL}/api/accounts/register/`,
-      {
-        method: "post",
-        headers: {
-          "Content-type": "application/json",
-        },
-        body: JSON.stringify(userObj),
+      const data = await res.json();
+
+      if (res.ok) {
+        return navigate(`/login/?${data?.message}`);
       }
-    );
-
-    const data = await res.json();
-
-    if (res.ok) {
-      return navigate(`/login/?${data?.message}`);
+      setError(data);
+    } catch (error) {
+      setError("Server is not connected");
     }
-    setError(data);
   };
 
   return (
     <section className="registration pt-10 mt-20">
       <div className="container mx-auto px-4">
         <div className="py-3">
-          <h1 className="text-2xl font-bold text-center">Create a new account</h1>
+          <h1 className="text-2xl font-bold text-center">
+            Create a new account
+          </h1>
         </div>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 place-items-center">
           <div className="">
@@ -94,12 +99,10 @@ const SignUp = () => {
                 onChange={(e) => setConfirmPassword(e.target.value)}
               />
             </div>
-            <button className={`default-btn py-3 w-full rounded`}>
-              Submit
-            </button>
+            <button className={`default-btn py-3 w-full`}>Submit</button>
             {error && (
               <p className="py-3 text-rose-500">
-                {error.error ? error.error : error.username}
+                {error.error || error ? error.error || error : error.username}
               </p>
             )}
           </form>
