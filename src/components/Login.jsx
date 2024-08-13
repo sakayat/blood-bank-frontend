@@ -9,6 +9,9 @@ const Login = () => {
 
   const [error, setError] = useState("");
 
+  console.log(error);
+  
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     const userObj = {
@@ -81,7 +84,7 @@ const Login = () => {
             <button className="default-btn py-3 w-full">Submit</button>
             {error && (
               <p className="py-3 text-rose-500">
-                {error.error || error.username || error.password}
+                {error || error.username || error.password}
               </p>
             )}
           </form>
