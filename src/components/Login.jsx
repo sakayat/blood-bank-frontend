@@ -27,8 +27,6 @@ const Login = () => {
         }
       );
 
-      console.log(res);
-
       const data = await res.json();
 
       if (res.ok) {
@@ -43,8 +41,6 @@ const Login = () => {
   const url = window.location.search.replace("?", "");
   const decodeMsg = decodeURIComponent(url);
 
-  console.log(error);
-  
 
   return (
     <section className="login pt-10 mt-20">

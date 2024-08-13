@@ -10,9 +10,11 @@ const SignUp = () => {
   const [confirmPassword, setConfirmPassword] = useState("");
 
   const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
     const userObj = {
       username: username,
       email: email,
@@ -20,6 +22,7 @@ const SignUp = () => {
       confirm_password: confirmPassword,
     };
     try {
+      setLoading(true);
       const res = await fetch(
         `${import.meta.env.VITE_API_BASE_URL}/api/accounts/register/`,
         {
@@ -36,11 +39,15 @@ const SignUp = () => {
       if (res.ok) {
         return navigate(`/login/?${data?.message}`);
       }
+
       setError(data);
+
+      setLoading(false);
     } catch (error) {
       setError("Server is not connected");
     }
   };
+  
 
   return (
     <section className="registration pt-10 mt-20">
@@ -99,10 +106,13 @@ const SignUp = () => {
                 onChange={(e) => setConfirmPassword(e.target.value)}
               />
             </div>
-            <button className={`default-btn py-3 w-full`}>Submit</button>
+            <button className={`default-btn py-3 w-full ${loading ? "opacity-40 cursor-wait" : ""}`} disabled={false}>{loading ? "Loading..." : "Submit"}</button>
             {error && (
               <p className="py-3 text-rose-500">
-                {error.error || error ? error.error || error : error.username}
+                {error.error ||
+                  error.username ||
+                  error.password ||
+                  error.confirm_password}
               </p>
             )}
           </form>
