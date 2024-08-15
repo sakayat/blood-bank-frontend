@@ -6,13 +6,13 @@ import { Facebook, HomeIcon, MailIcon, PhoneCall, Twitter } from "lucide-react";
 const Footer = () => {
   return (
     <section className="pt-10 relative">
-      <div className="flex h-full items-center footer border-t bg-black text-white">
+      <div className="flex h-full items-center footer border-t bg-black text-white pt-5">
         <div className="max-w-7xl mx-auto px-4">
           <div className="flex flex-col gap-3">
             <NavLink to="/">
               <img src={logo} alt="" className="w-72 h-full" />
             </NavLink>
-            <div className="grid grid-cols-12 gap-10 lg:gap-5 mb-10">
+            <div className="lg:grid grid-cols-12 gap-10 mb-10 space-y-5">
               <div className="col-span-12 lg:col-span-5 space-y-5">
                 <p>
                   We are world largest and trustful blood donation center. We
@@ -81,3 +81,7 @@ const Footer = () => {
 };
 
 export default Footer;
+
+
+
+

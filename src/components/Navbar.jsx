@@ -45,14 +45,14 @@ const Navbar = () => {
     <div className="navbar fixed top-0 inset-x-0 w-full z-40">
       <nav className="bg-white text-black border-b">
         <div className="max-w-7xl mx-auto px-4">
-          <div className="flex items-center justify-between h-20">
+          <div className="flex items-center justify-between py-5">
             <div className="logo">
               <NavLink to="/">
                 <img src={logo} alt="" className="w-full h-full" />
               </NavLink>
             </div>
-            <button onClick={() => setOpen(!open)} className="lg:hidden block">
-              {open ? <X size={20} /> : <AlignLeft />}
+            <button onClick={() => setOpen(!open)} className="lg:hidden block px-4 border border-black py-2">
+              {open ? <X size={22} className="icon-color"/> : <AlignLeft size={22} className="icon-color"/>}
             </button>
             <ul
               className={`lg:flex items-center gap-8 uppercase text-sm ${

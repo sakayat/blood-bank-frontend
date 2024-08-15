@@ -33,7 +33,7 @@ const DonationCampaign = () => {
             </button>
           </div>
           <div className="col-span-12 lg:col-span-7">
-            <div className="slider-container py-5">
+            <div className="slider-container overflow-hidden py-5">
               <Slider {...settings}>
                 <div className="event-info">
                   <div className="flex items-center gap-5">

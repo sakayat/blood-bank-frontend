@@ -40,11 +40,11 @@ const HeroSection = () => {
 
   return (
     <section className="hero">
-      <div className="slider-container">
+      <div className="slider-container overflow-hidden">
         <Slider {...settings}>
           {sliderData.map((item) => (
             <div
-              className="content text-white space-y-5 relative"
+              className="content text-white space-y-5 relative "
               key={item.id}
             >
               <div className="slider-img">
