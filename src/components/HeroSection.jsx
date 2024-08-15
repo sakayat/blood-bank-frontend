@@ -5,6 +5,7 @@ import "slick-carousel/slick/slick-theme.css";
 import img1 from "../assets/images/slider1.jpg";
 import img2 from "../assets/images/slider2.jpg";
 import img3 from "../assets/images/slider3.jpg";
+import { Link } from "react-router-dom";
 
 const HeroSection = () => {
   const sliderData = [
@@ -57,7 +58,7 @@ const HeroSection = () => {
                       {item.description}
                     </p>
                     <button className="default-btn py-3 px-6">
-                      Donate Now
+                      <Link to="/login" className="hover:text-white">Donate Now</Link>
                     </button>
                   </div>
                 </div>
