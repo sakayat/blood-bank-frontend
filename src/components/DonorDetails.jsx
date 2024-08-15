@@ -32,7 +32,7 @@ const DonorDetails = () => {
         <div className="bg-black w-full h-full opacity-60 absolute top-0"></div>
       </div>
       <div className="max-w-7xl mx-auto px-4">
-        <div className="flex items-center h-24 bg-black/90 text-white px-6 mt-10">
+        <div className="flex flex-col items-center lg:h-24 bg-black/90 text-white px-6 mt-10">
           <div className="flex justify-center">
             <img
               src={userData?.profile_image ? `${import.meta.env.VITE_API_BASE_URL}/${

@@ -58,7 +58,7 @@ const Navbar = () => {
               className={`lg:flex items-center gap-8 uppercase text-sm ${
                 open
                   ? "block lg:hidden absolute top-20 inset-x-0 py-5 space-y-5 bg-black text-white px-8"
-                  : "sm:hidden"
+                  : "hidden"
               }`}
               id="nav-links"
             >
