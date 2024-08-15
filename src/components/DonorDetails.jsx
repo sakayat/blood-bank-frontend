@@ -32,7 +32,7 @@ const DonorDetails = () => {
         <div className="bg-black w-full h-full opacity-60 absolute top-0"></div>
       </div>
       <div className="max-w-7xl mx-auto px-4">
-        <div className="flex flex-col items-center lg:h-24 bg-black/90 text-white px-6 mt-10">
+        <div className="flex flex-col lg:flex-row gap-5 items-center lg:h-24 bg-black/90 text-white px-6 mt-10 py-5">
           <div className="flex justify-center">
             <img
               src={userData?.profile_image ? `${import.meta.env.VITE_API_BASE_URL}/${
@@ -42,8 +42,8 @@ const DonorDetails = () => {
               className="w-36 h-36 rounded-full p-1"
             />
           </div>
-          <div className="w-[48rem] mx-auto">
-            <div className="flex justify-between w-full">
+          <div className="lg:w-[48rem] mx-auto">
+            <div className="flex flex-col lg:flex-row items-center gap-5 justify-between w-full">
               <div className="space-x-3">
                 <span>Blood Group:</span>
                 <span className="w-5 h-5 bg-rose-600 rounded-full p-2">
