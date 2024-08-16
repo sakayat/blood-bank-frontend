@@ -23,6 +23,10 @@ const Navbar = () => {
       localStorage.removeItem("authToken");
       return navigate("/login");
     }
+
+    if(window.innerWidth < 1024){
+      setOpen(!open)
+    }
   };
 
   const [open, setOpen] = useState(false);
@@ -41,6 +45,12 @@ const Navbar = () => {
     };
   }, []);
 
+  const handleNavLink = () => {
+    if (window.innerWidth < 1024) {
+      setOpen(false);
+    }
+  };
+
   return (
     <div className="navbar fixed top-0 inset-x-0 w-full z-40">
       <nav className="bg-white text-black border-b">
@@ -51,8 +61,15 @@ const Navbar = () => {
                 <img src={logo} alt="" className="w-full h-full" />
               </NavLink>
             </div>
-            <button onClick={() => setOpen(!open)} className="lg:hidden block px-4 border border-black py-2">
-              {open ? <X size={22} className="icon-color"/> : <AlignLeft size={22} className="icon-color"/>}
+            <button
+              onClick={() => setOpen(!open)}
+              className="lg:hidden block px-4 border border-black py-2"
+            >
+              {open ? (
+                <X size={22} className="icon-color" />
+              ) : (
+                <AlignLeft size={22} className="icon-color" />
+              )}
             </button>
             <ul
               className={`lg:flex items-center gap-8 uppercase text-sm ${
@@ -66,7 +83,7 @@ const Navbar = () => {
                 <NavLink
                   to="blood-request/"
                   className="active"
-                  onClick={() => setOpen(!open)}
+                  onClick={handleNavLink}
                 >
                   Blood Request
                 </NavLink>
@@ -75,17 +92,13 @@ const Navbar = () => {
                 <NavLink
                   to="contact/"
                   className="active"
-                  onClick={() => setOpen(!open)}
+                  onClick={handleNavLink}
                 >
                   Contact
                 </NavLink>
               </li>
               <li>
-                <NavLink
-                  to="about/"
-                  className="active"
-                  onClick={() => setOpen(!open)}
-                >
+                <NavLink to="about/" className="active" onClick={handleNavLink}>
                   About Us
                 </NavLink>
               </li>
@@ -95,7 +108,7 @@ const Navbar = () => {
                     <NavLink
                       to="profile/"
                       className="active"
-                      onClick={() => setOpen(!open)}
+                      onClick={handleNavLink}
                     >
                       Profile
                     </NavLink>
@@ -104,7 +117,7 @@ const Navbar = () => {
                     <NavLink
                       to="/dashboard/ongoing-requests/"
                       className="active"
-                      onClick={() => setOpen(!open)}
+                      onClick={handleNavLink}
                     >
                       Dashboard
                     </NavLink>
@@ -124,7 +137,7 @@ const Navbar = () => {
                     <NavLink
                       to="login/"
                       className="active"
-                      onClick={() => setOpen(!open)}
+                      onClick={handleNavLink}
                     >
                       Login
                     </NavLink>
@@ -133,7 +146,7 @@ const Navbar = () => {
                     <NavLink
                       to="sign-up/"
                       className="active"
-                      onClick={() => setOpen(!open)}
+                      onClick={handleNavLink}
                     >
                       SignUp
                     </NavLink>

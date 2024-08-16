@@ -47,7 +47,7 @@ const DonationCampaign = () => {
                         </span>
                         <span className="text-sm">December 7</span>
                       </div>
-                      <h4 className="text-4xl">
+                      <h4 className="text-2xl lg:text-4xl">
                         World Blood Donors Day
                       </h4>
                       <p className="text-gray-500 leading-7">
