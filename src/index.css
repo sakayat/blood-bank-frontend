@@ -34,13 +34,13 @@ h1 {
 .icon-color {
   color: var(--primary-color);
 }
-.icon-bg{
+.icon-bg {
   background-color: var(--primary-color);
 }
-.default-bg{
+.default-bg {
   background-color: var(--primary-color);
 }
-.default-color{
+.default-color {
   color: var(--primary-color);
 }
 
@@ -70,13 +70,24 @@ h1 {
   background-color: #f8f9fa;
 }
 
-.donor-info li{
+.donor-info li {
   position: relative;
 }
 
-.donor-info li .caption::after {
-  position: absolute;
-  content: ":";
-  top: 0;
-  left: 12%;
+@media only screen and (min-width: 768px) {
+  .donor-info li .caption::after {
+    position: absolute;
+    content: ":";
+    top: 0;
+    left: 15%;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .donor-info li span {
+    width: 100%;
+  }
+  .donor-info li {
+    flex-wrap: wrap;
+  }
 }
