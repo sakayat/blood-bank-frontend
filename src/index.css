@@ -74,15 +74,6 @@ h1 {
   position: relative;
 }
 
-@media only screen and (min-width: 768px) {
-  .donor-info li .caption::after {
-    position: absolute;
-    content: ":";
-    top: 0;
-    left: 15%;
-  }
-}
-
 @media only screen and (max-width: 768px) {
   .donor-info li span {
     width: 100%;

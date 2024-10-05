@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import logo from "../assets/images/logo.svg";
-import { AlignLeft, HamIcon, X } from "lucide-react";
+import { AlignLeft, X } from "lucide-react";
 
 const Navbar = () => {
   const token = localStorage.getItem("authToken");
   const navigate = useNavigate();
+  const [open, setOpen] = useState(false);
 
   const handleLogOut = async () => {
     const res = await fetch(
@@ -24,12 +25,8 @@ const Navbar = () => {
       return navigate("/login");
     }
 
-    if(window.innerWidth < 1024){
-      setOpen(!open)
-    }
+    setOpen(false);
   };
-
-  const [open, setOpen] = useState(false);
 
   useEffect(() => {
     const handleResize = () => {

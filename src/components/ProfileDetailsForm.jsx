@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import img from "../assets/images//add_information.png";
-import { data } from "autoprefixer";
 
 const ProfileDetailsForm = ({ user, id }) => {
   const token = localStorage.getItem("authToken");
@@ -33,13 +32,29 @@ const ProfileDetailsForm = ({ user, id }) => {
   const [address, setAddress] = useState("");
   const [lastDonation, setLastDonation] = useState("");
   const [isAvailable, setIsAvailable] = useState(false);
-  const [profileImage, setProfileImage] = useState(null);
+  const [profileImage, setProfileImage] = useState("");
 
   const [error, setError] = useState("");
 
-  const handleImageUpload = (e) => {
+  const handleImageUpload = async (e) => {
     const file = e.target.files[0];
-    setProfileImage(file);
+    if (!file) return;
+
+    const data = new FormData();
+    data.append("file", file);
+    data.append("upload_preset", "hxdbn2v3");
+    data.append("cloud_name", "dmbu1haaj");
+
+    const res = await fetch(
+      `https://api.cloudinary.com/v1_1/dmbu1haaj/image/upload`,
+      {
+        method: "POST",
+        body: data,
+      }
+    );
+
+    const imageUrl = await res.json();
+    setProfileImage(imageUrl.url);
   };
 
   useEffect(() => {
@@ -61,30 +76,28 @@ const ProfileDetailsForm = ({ user, id }) => {
   const handleOnProfile = async (e) => {
     e.preventDefault();
 
-    const formData = new FormData();
-
-    formData.append("first_name", firstName);
-    formData.append("last_name", lastName);
-    formData.append("blood_group", group);
-    formData.append("gender", gender);
-    formData.append("religion", religion);
-    formData.append("address", address);
-    formData.append("age", age);
-    formData.append("profession", profession);
-    formData.append("last_donation", lastDonation);
-    formData.append("is_available", isAvailable);
-    formData.append("profile_image", profileImage);
-    
-
     if (user) {
       const res = await fetch(
         `${import.meta.env.VITE_API_BASE_URL}/api/donors/update-profile/${id}/`,
         {
           method: "put",
           headers: {
+            "content-type": "application/json",
             Authorization: `Token ${token}`,
           },
-          body: formData,
+          body: JSON.stringify({
+            first_name: firstName,
+            last_name: lastName,
+            blood_group: group,
+            gender,
+            religion,
+            address,
+            age,
+            profession,
+            last_donation: lastDonation,
+            is_available: isAvailable,
+            profile_image: profileImage,
+          }),
         }
       );
 
@@ -97,9 +110,22 @@ const ProfileDetailsForm = ({ user, id }) => {
         {
           method: "post",
           headers: {
+            "content-type": "application/json",
             Authorization: `Token ${token}`,
           },
-          body: formData,
+          body: JSON.stringify({
+            first_name: firstName,
+            last_name: lastName,
+            blood_group: group,
+            gender,
+            religion,
+            address,
+            age,
+            profession,
+            last_donation: lastDonation,
+            is_available: isAvailable,
+            profile_image: profileImage,
+          }),
         }
       );
 
@@ -257,7 +283,21 @@ const ProfileDetailsForm = ({ user, id }) => {
                 onChange={() => setIsAvailable(!isAvailable)}
               />
             </div>
-            {error && <p className="py-3 text-rose-500">{error.error}</p>}
+            {error && (
+              <p className="py-3 text-rose-500">
+                {error.first_name ||
+                  error.last_name ||
+                  error.blood_group ||
+                  error.gender ||
+                  error.religion ||
+                  error.address ||
+                  error.age ||
+                  error.profession ||
+                  error.last_donation ||
+                  error.is_available ||
+                  error.profile_image}
+              </p>
+            )}
             <button className="default-btn py-3 w-full rounded">Submit</button>
           </form>
         </div>

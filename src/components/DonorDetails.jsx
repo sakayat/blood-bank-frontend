@@ -35,9 +35,7 @@ const DonorDetails = () => {
         <div className="flex flex-col lg:flex-row gap-5 items-center lg:h-24 bg-black/90 text-white px-6 mt-10 py-5">
           <div className="flex justify-center">
             <img
-              src={userData?.profile_image ? `${import.meta.env.VITE_API_BASE_URL}/${
-                userData?.profile_image
-              }` : profileImg}
+              src={userData?.profile_image}
               alt=""
               className="w-36 h-36 rounded-full p-1"
             />
@@ -62,7 +60,7 @@ const DonorDetails = () => {
             <ul className="donor-info space-y-7">
               <li className="flex">
                 <span className="w-44 font-semibold caption">Name</span>
-                <div className="space-x-3">
+                <div className="space-x-2">
                   <span>{userData?.first_name}</span>
                   <span>{userData?.last_name}</span>
                 </div>
