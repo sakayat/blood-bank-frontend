@@ -56,7 +56,7 @@ const ProfileDetailsForm = ({ user, id }) => {
     const imageUrl = await res.json();
     setProfileImage(imageUrl.url);
   };
-
+  
   useEffect(() => {
     if (user) {
       setFirstName(user.first_name);
@@ -99,7 +99,7 @@ const ProfileDetailsForm = ({ user, id }) => {
             profile_image: profileImage,
           }),
         }
-      );
+      );      
 
       if (res.ok) {
         return navigate("/profile/");

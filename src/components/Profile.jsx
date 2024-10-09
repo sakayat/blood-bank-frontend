@@ -22,6 +22,7 @@ const Profile = () => {
       }
     );
     const data = await res.json();
+    
     setProfileInfo(data);
   };
 
