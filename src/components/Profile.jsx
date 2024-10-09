@@ -37,7 +37,7 @@ const Profile = () => {
         <div className="profile-info space-y-5">
           <p className="text-rose-500">{profileInfo.error}</p>
           {profileInfo.error ? (
-            <button className="default-btn py-3 px-6 rounded">
+            <button className="default-btn rounded py-3 px-6">
               <Link to="details/" className="hover:text-white">
                 Add Profile Details
               </Link>
@@ -101,7 +101,7 @@ const Profile = () => {
                 </span>
               </div>
               {profileInfo && (
-                <button className="default-btn w-full py-3 px-6  hover:text-white">
+                <button className="default-btn rounded w-full py-3 px-6  hover:text-white">
                   <Link
                     to={`update/${profileInfo.id}/`}
                     className="hover:text-white"

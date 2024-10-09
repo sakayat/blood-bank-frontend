@@ -121,7 +121,8 @@ const Navbar = () => {
                   </li>
                   <li>
                     <button
-                      className="py-3 px-4 default-btn uppercase text-sm"
+                      className="py-3 px-4 default-btn
+                       rounded uppercase text-sm"
                       onClick={handleLogOut}
                     >
                       Logout
