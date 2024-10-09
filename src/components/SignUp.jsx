@@ -106,7 +106,7 @@ const SignUp = () => {
                 onChange={(e) => setConfirmPassword(e.target.value)}
               />
             </div>
-            <button className={`default-btn py-3 w-full ${loading ? "opacity-40 cursor-wait" : ""}`} disabled={false}>{loading ? "Loading..." : "Submit"}</button>
+            <button className={`default-btn rounded py-3 w-full ${loading ? "opacity-40 cursor-wait" : ""}`} disabled={false}>{loading ? "Loading..." : "Submit"}</button>
             {error && (
               <p className="py-3 text-rose-500">
                 {error.error ||

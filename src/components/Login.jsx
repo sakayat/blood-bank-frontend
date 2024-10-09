@@ -78,7 +78,7 @@ const Login = () => {
                 onChange={(e) => setPassword(e.target.value)}
               />
             </div>
-            <button className="default-btn py-3 w-full">Submit</button>
+            <button className="default-btn rounded py-3 w-full">Submit</button>
             {error && (
               <p className="py-3 text-rose-500">
                 {error.error || error.username || error.password}
