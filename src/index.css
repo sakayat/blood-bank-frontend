@@ -29,6 +29,7 @@ h1 {
 .default-btn {
   background-color: var(--primary-color);
   color: #fff;
+  border-radius: 4px;
 }
 
 .icon-color {

@@ -4,8 +4,8 @@ import img from "../assets/images/login.png";
 
 const Login = () => {
   const navigate = useNavigate();
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
+  const [username, setUsername] = useState("shohag");
+  const [password, setPassword] = useState("5.qSVrRhCbmCey2");
 
   const [error, setError] = useState("");
   
@@ -15,6 +15,7 @@ const Login = () => {
       username: username,
       password: password,
     };
+    
     try {
       const res = await fetch(
         `${import.meta.env.VITE_API_BASE_URL}/api/accounts/login/`,
