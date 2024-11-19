@@ -72,13 +72,3 @@ The **Blood Donation Website** is a platform where users can view current blood 
    - Admin Panel can be accessed at: `http://127.0.0.1:8000`
 
 ---
-
-## Testing
-
-You can test the website by visiting the frontend and using the following credentials for login.
-
-- **Admin Credentials**
-  - **Username:** Sabrina
-  - **Password:** `u3t1^qWx*AE`
-
----
