@@ -44,7 +44,6 @@ The **Blood Donation Website** is a platform where users can view current blood 
 1. **Clone the Repository**
    ```bash
    git clone https://github.com/sakayat/blood-bank-frontend.git
-   cd blood-bank-frontend
    ```
 
 2. **Frontend Setup (React + Vite)**
